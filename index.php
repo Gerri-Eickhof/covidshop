@@ -16,7 +16,7 @@ closeCon($conn); //close connection
 ?>
 <html>
 <body>
-  <form action="insert.php" method="POST">
+  <form action="insert.php" method="post">
     <table>
       <tr>
         <td>Voornaam :</td>
@@ -32,8 +32,7 @@ closeCon($conn); //close connection
       </tr>
       <tr>
         <td>Versturen :</td>
-        <td><input type="submit" value="submit"></td>
-      </tr>
+        <td><input type="submit" name="submit" value="submit"></td>      </tr>
     </table>
   </form>
 </body>
