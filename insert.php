@@ -5,10 +5,9 @@ $conn = openCon();
 $firstname = $_POST['firstname'];
 $lastname = $_POST['lastname'];
 $email =$_POST['email'];
-$phone =$_POST['phone'];
-$product =$_POST['product'];
 
-if(!empty($firstname) || !empty($lastname) || !empty($email) || !empty($phone) || !empty($product)) {
+
+if(!empty($firstname) || !empty($lastname) || !empty($email)) {
     $conn;
     $SELECT = "SELECT `email` From `contact` Where `email` = ? limit 1";
     $INSERT = "INSERT Into contact (id, firstname, lastname, email, phone, product) values (?, ?, ?, ?, ?)";

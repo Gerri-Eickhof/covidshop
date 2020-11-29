@@ -3,9 +3,7 @@ include 'db_connection.php'; //connecting the db_connection to this file
 
 $conn = openCon(); //making connection to the database
 
-echo "Connected Successfully" . "<br>"; // echo when Successfully
-
-//making a record for firs-, lastname and email.
+// making a record for firs-, lastname and email.
 // $sql = "INSERT INTO MyGuests (firstname, lastname, email)
 // VALUES ('Olivier', 'Vromans', 'olivier@vromans.eu')";
 // if ($conn->query($sql) === TRUE) {
@@ -31,14 +29,6 @@ closeCon($conn); //close connection
       <tr>
         <td>Email :</td>
         <td><input type="email" name="email"></td>
-      </tr>
-      <tr>
-        <td>Telefoonnummer :</td>
-        <td><input type="phone" name="phone"></td>
-      </tr>
-      <tr>
-        <td>Producten :</td>
-        <td><input type="number" name="product"></td>
       </tr>
       <tr>
         <td>Versturen :</td>

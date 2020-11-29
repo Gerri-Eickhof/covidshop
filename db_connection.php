@@ -10,6 +10,11 @@ function openCon() {
     $conn = new mysqli($dbHost, $dbUser, $dbPass, $db) or die("Connect Failed; %s\n".
     $conn -> error);
 
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+    echo "Connected successfully" ."<br>";
     return $conn;
 }
 // closing connection to database
