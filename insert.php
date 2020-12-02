@@ -5,13 +5,27 @@ $conn = openCon();
 $firstname = $_POST['firstname'];
 $lastname = $_POST['lastname'];
 $email = $_POST['email'];
+$phone = $_POST['phone'];
+$adress = $_POST['adress'];
+$zipcode = $_POST['zipcode'];
+$city = $_POST['city'];
+$products = $_POST['products'];
+$date = $_POST['date'];
+$time = $_POST['time'];
 
 echo $firstname. "<br>";
 echo $lastname. "<br>";
 echo $email. "<br>";
+echo $phone. "<br>";
+echo $products. "<br>";
+echo $date. "<br>";
+echo $adress. "<br>";
+echo $zipcode. "<br>";
+echo $city. "<br>";
+echo $time. "<br>";
 
 if (isset($_POST['submit'])) {
-    $sql = "INSERT INTO test(firstname, lastname, email) VALUES('$firstname', '$lastname', '$email')";
+    $sql = "INSERT INTO contact(firstname, lastname, email, phone, adress, zipcode, city, products, date, time) VALUES('$firstname', '$lastname', '$email', '$phone', '$adress', '$zipcode', '$city', '$products', '$date', '$time')";
     if (mysqli_query($conn, $sql)) {
         echo "Records added succesfully";
     } else {
