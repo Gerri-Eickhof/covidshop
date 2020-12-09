@@ -1,5 +1,5 @@
 <?php
-require_once 'db_connection.php'; //connecting the db_connection to this file
+require_once 'php/db_connection.php'; //connecting the db_connection to this file
 $conn = openCon();
 
 $firstname = $_POST['firstname'];
@@ -9,6 +9,7 @@ $phone = $_POST['phone'];
 $adress = $_POST['adress'];
 $zipcode = $_POST['zipcode'];
 $city = $_POST['city'];
+$state = $_POST['state'];
 $products = $_POST['products'];
 $date = $_POST['date'];
 $time = $_POST['time'];
@@ -22,10 +23,11 @@ echo $date. "<br>";
 echo $adress. "<br>";
 echo $zipcode. "<br>";
 echo $city. "<br>";
+echo $state. "<br>";
 echo $time. "<br>";
 
 if (isset($_POST['submit'])) {
-    $sql = "INSERT INTO contact(firstname, lastname, email, phone, adress, zipcode, city, products, date, time) VALUES('$firstname', '$lastname', '$email', '$phone', '$adress', '$zipcode', '$city', '$products', '$date', '$time')";
+    $sql = "INSERT INTO contact(firstname, lastname, email, phone, adress, zipcode, city, state, products, date, time) VALUES('$firstname', '$lastname', '$email', '$phone', '$adress', '$zipcode', '$city', '$state', '$products', '$date', '$time')";
     if (mysqli_query($conn, $sql)) {
         echo "Records added succesfully";
     } else {

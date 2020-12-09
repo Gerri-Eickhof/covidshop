@@ -1,5 +1,5 @@
 <?php
-require_once 'db_connection.php'; //connecting the db_connection to this file
+require_once 'php/db_connection.php'; //connecting the db_connection to this file
 
 $conn = openCon(); //making connection to the database
 
@@ -47,9 +47,13 @@ closeCon($conn); //close connection
         <td>Plaats:</td>
         <td><input type="text" name="city"></td>
       </tr>
+        <tr>
+            <td>Provincie:</td>
+            <td><input type="text" name="state"></td>
+        </tr>
       <tr>
         <td>Hoeveelheid testen:</td>
-        <td><input type="number" name="products"></td>
+        <td><input type="number" min="0" name="products"></td>
       </tr>
       <tr>
         <td>Datum:</td>
