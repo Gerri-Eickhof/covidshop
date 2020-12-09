@@ -14,7 +14,7 @@ function openCon() {
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
-    echo "Connected successfully" ."<br>";
+//    echo "Connected successfully" ."<br>";
     return $conn;
 }
 // closing connection to database
