@@ -18,3 +18,7 @@ Reserveringssysteem voor Covidshop.
 # Version 0.4
 * Form is aanggepast zodat alle gegevens die voor covidshop.nl relevant zijn er in staan en opgeslagen kunnen worden in de database.
 * Form is getest tijdens het geven van onze presentatie waarin wij de voortgang van deze sprint hebben verteld.
+
+# Version 0.5
+* Begin van de kalender is gemaakt, er kan op een datum geklikt worden, en je word doorverwezen naar een pagina waar een form ingevuld kan worden.
+* Form is verbonden met de database.
