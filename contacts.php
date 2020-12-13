@@ -33,16 +33,24 @@ $conn->close();
 <head>
 <!--    Connect to bootstrap font awesome and style.css for the looks -->
     <script src="https://kit.fontawesome.com/587a279f36.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
     <link href = 'Styles/style.css' type = "text/css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="plugins/datatables/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="plugins/datatables/responsive.bootstrap4.min.css">
+    <script type="text/javascript" src="plugins/datatables/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="plugins/datatables/dataTables.bootstrap4.min.js"></script>
+    <script type="text/javascript" src="plugins/datatables/dataTables.responsive.min.js"></script>
+    <script type="text/javascript" src="plugins/datatables/responsive.bootstrap4.min.js"></script>
 </head>
 <body>
 <main>
     <div>
         <!-- Making the form -->
-        <div class="container text-center">
+        <div class="container">
             <!-- title of the Form -->
-            <h1 class="py-4"><i class="far fa-calendar-check"></i> Afspraken Toevoegen</h1>
+            <h1 class="py-4 text-center"><i class="far fa-calendar-check"></i> Afspraken Toevoegen</h1>
             <div class="d-flex justify-content-center">
                 <form action="" method="post" class="w-50">
                     <div class="row g-2">
@@ -98,9 +106,9 @@ $conn->close();
             </div>
         </div>
             <!-- Bootstrap table -->
-            <div class=" table-data text-align='center'">
-                <table class="table table-striped table-light">
-                    <thead class="thead-dark">
+            <div class="card-body">
+                <table id="appointments" class="table dataTable table-striped table-light" width="100%">
+                    <thead>
                         <tr>
                             <th colspan="13">Contact Informatie</th>
                         </tr>
@@ -120,7 +128,7 @@ $conn->close();
                             <th>Aanpassen</th>
                       </tr>
                     </thead>
-                    <tbody id="tbody"
+                    <tbody>
                         <?php foreach ($contact as $index => $costumers) { ?>
                             <tr>
                                 <td><?= $costumers['id'] ?></td>
@@ -135,7 +143,7 @@ $conn->close();
                                 <td><?= $costumers['products'] ?></td>
                                 <td><?= $costumers['date'] ?></td>
                                 <td><?= $costumers['time'] ?></td>
-                                <td><i class="fas fa-edit btnedit"></i></i></td>
+                                <td><i class="fas fa-edit btnedit"></i></td>
                             </tr>
                         <?php }; ?>
                     </tbody>
@@ -143,6 +151,7 @@ $conn->close();
             </div>
         </div>
 </main>
+<script src="php/main.js"></script>
 </body>
 </html>
 </body>

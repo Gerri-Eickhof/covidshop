@@ -15,6 +15,9 @@ $conn = openCon(); //making connection to the database
 closeCon($conn); //close connection
 ?>
 <html>
+<head>
+  <link href = 'Styles/style.css' type = "text/css" rel="stylesheet" />
+</head>
 <body>
   <form action="insert.php" method="post">
     <table>
