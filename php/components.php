@@ -1,8 +1,8 @@
 <?php
-function inputElement($size, $input, $id, $placeholder, $label){
+function inputElement($size, $input, $name, $placeholder, $label){
  $ele = "
         <div class=\"$size\">
-            <input type=\"$input\" class=\"form-control\" id=\"$id\" placeholder=\"$placeholder\" aria-label=\"$label\">
+            <input type=\"$input\" class=\"form-control\" name=\"$name\" placeholder=\"$placeholder\" aria-label=\"$label\" min=\"0\">
         </div>
     ";
     echo $ele;

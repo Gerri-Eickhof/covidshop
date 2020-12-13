@@ -27,9 +27,10 @@ echo $state. "<br>";
 echo $time. "<br>";
 
 if (isset($_POST['submit'])) {
-    $sql = "INSERT INTO contact(firstname, lastname, email, phone, adress, zipcode, city, state, products, date, time) VALUES('$firstname', '$lastname', '$email', '$phone', '$adress', '$zipcode', '$city', '$state', '$products', '$date', '$time')";
+    $sql = "INSERT INTO contact(firstname, lastname, email, phone, adress, zipcode, city, state, products, date, time) 
+            VALUES('$firstname', '$lastname', '$email', '$phone', '$adress', '$zipcode', '$city', '$state', '$products', '$date', '$time')";
     if (mysqli_query($conn, $sql)) {
-        echo "Records added succesfully";
+        echo "Records added successfully";
     } else {
         echo "Error, could not execute" . mysqli_error($conn);
     }

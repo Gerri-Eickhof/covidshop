@@ -1,7 +1,5 @@
 <?php
-require_once 'php/db_connection.php'; //connecting the db_connection to this file
-require_once 'php/components.php'; //connection to the components to use the form function
-$conn = openCon(); //making connection to the database
+require_once 'php/operation.php'; //connection to the operation file to connect to db_connection and components
 
 //Get the result set from the database with a SQL query
 $result = mysqli_query($conn, "SELECT id, firstname, lastname, email, phone, adress, zipcode, city, state, products, date, time FROM contact")
@@ -26,7 +24,6 @@ while($row = mysqli_fetch_assoc($result)){
             'time' => $row['time']
             ];
 }
-//print_r($contact). "<br>";
 
 //Close connection
 $conn->close();
@@ -47,19 +44,20 @@ $conn->close();
             <!-- title of the Form -->
             <h1 class="py-4"><i class="far fa-calendar-check"></i> Afspraken Toevoegen</h1>
             <div class="d-flex justify-content-center">
-                <div action="insert.php" method="post" class="w-50">
+                <form action="" method="post" class="w-50">
                     <div class="row g-2">
                         <!-- Using the Function inputElements out of thecomponents.php file for the form inputs -->
-                        <? inputElement("col-md-6", "text", "fname", "Voornaam", "First name"); ?>
-                        <? inputElement("col-md-6", "text","lname", "Achternaam", "Last name"); ?>
-                        <? inputElement("col-md-12", "email","inputEmail4", "Email", "Email"); ?>
-                        <? inputElement("col-md-7", "text","inputAddress", "Adres", "Adres"); ?>
-                        <? inputElement("col-md-5", "text","inputAddress2", "Huisnummer", "House number"); ?>
-                        <? inputElement("col-md-7", "text","inputCity", "Plaats", "City"); ?>
-                        <? inputElement("col-md-5", "text","inputZip", "Postcode", "Zipcode"); ?>
+                        <? inputElement("col-md-6", "text", "firstname", "Voornaam", "First name"); ?>
+                        <? inputElement("col-md-6", "text","lastname", "Achternaam", "Last name"); ?>
+                        <? inputElement("col-md-12", "email","email", "Email", "Email"); ?>
+                        <? inputElement("col-md-12", "varchar","phone", "Telefoonnumer", "Phone"); ?>
+                        <? inputElement("col-md-7", "text","adress", "Adres", "Adres"); ?>
+                        <? inputElement("col-md-5", "number","housenumber", "Huisnummer", "House number"); ?>
+                        <? inputElement("col-md-7", "text","city", "Plaats", "City"); ?>
+                        <? inputElement("col-md-5", "text","zipcode", "Postcode", "Zipcode"); ?>
                         <!-- Making the dropdown menu for the states in the Netherlands -->
                         <div class="col-md-7">
-                            <select id="inputState" class="form-select" placeholder="Provincie" ">
+                            <select id="inputState" class="form-select" placeholder="Provincie"  name="state"">
                                 <option selected disabled>Kies...</option>
                                 <option>Drenthe</option>
                                 <option>Flevoland</option>
@@ -77,15 +75,15 @@ $conn->close();
                         </div>
                         <!-- setting up the cell for how many products -->
                         <div class="col-md-5">
-                            <input type="number" min="0" class="form-control" placeholder="Testen" aria-label="Products">
+                            <input type="number" min="0" class="form-control" placeholder="Testen" aria-label="Products" name="products">
                         </div>
                         <!-- setting up the cell for the date -->
                         <div class="col-md-7">
-                            <input type="date" class="form-control" placeholder="Datum" aria-label="Date">
+                            <input type="date" class="form-control" placeholder="Datum" aria-label="Date" name="date">
                         </div>
                         <!-- setting up the cell for the time -->
                         <div class="col-md-5">
-                            <input type="time" class="form-control" placeholder="Tijd" aria-label="Time">
+                            <input type="time" class="form-control" placeholder="Tijd" aria-label="Time" name="time">
                         </div>
                     </div>
                     <div class="row">
@@ -96,7 +94,6 @@ $conn->close();
                         <? buttonElement("btn-update", "btn btn-light border", "<i class='fas fa-pen-alt'></i>", "update", "dat-toggle='tooltip' data-placement='buttom' title='Updaten'");?>
                         <? buttonElement("btn-delete", "btn btn-danger", "<i class='fas fa-trash-alt'></i>", "delete", "dat-toggle='tooltip' data-placement='buttom' title='Verwijderen'");?>
                     </div>
-                </div>
                 </form>
             </div>
         </div>
@@ -146,53 +143,6 @@ $conn->close();
             </div>
         </div>
 </main>
-
-
-<!--<br> <br> <br>-->
-<!--<h1>Contact Informatie</h1>-->
-<!--<table>-->
-<!--    <thead>-->
-<!--    <tr>-->
-<!--        <th>#</th>-->
-<!--        <th>Voornaam</th>-->
-<!--        <th>Achternaam</th>-->
-<!--        <th>Email</th>-->
-<!--        <th>Telefoon nummer</th>-->
-<!--        <th>adres</th>-->
-<!--        <th>Postcode</th>-->
-<!--        <th>Plaats</th>-->
-<!--        <th>Provincie</th>-->
-<!--        <th>Hoeveel Producten</th>-->
-<!--        <th>Datum</th>-->
-<!--        <th>Tijd</th>-->
-<!--        <th>Aanpassen</th>-->
-<!--        <th colspan="2"></th>-->
-<!--    </tr>-->
-<!--    </thead>-->
-<!--    <tfoot>-->
-<!--    </tfoot>-->
-<!--    <tbody>-->
-<!--    --><?php //foreach ($contact as $index => $costumers) { ?>
-<!--        <tr>-->
-<!--            <td>--><?//= $costumers['id'] ?><!--</td>-->
-<!--            <td>--><?//= $costumers['firstname'] ?><!--</td>-->
-<!--            <td>--><?//= $costumers['lastname'] ?><!--</td>-->
-<!--            <td>--><?//= $costumers['email'] ?><!--</td>-->
-<!--            <td>--><?//= $costumers['phone'] ?><!--</td>-->
-<!--            <td>--><?//= $costumers['adress'] ?><!--</td>-->
-<!--            <td>--><?//= $costumers['zipcode'] ?><!--</td>-->
-<!--            <td>--><?//= $costumers['city'] ?><!--</td>-->
-<!--            <td>--><?//= $costumers['state'] ?><!--</td>-->
-<!--            <td>--><?//= $costumers['products'] ?><!--</td>-->
-<!--            <td>--><?//= $costumers['date'] ?><!--</td>-->
-<!--            <td>--><?//= $costumers['time'] ?><!--</td>-->
-<!--        </tr>-->
-<!--    --><?php //}; ?>
-<!--    </tbody>-->
-<!--</form>-->
-<!--    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>-->
-<!--    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>-->
-<!--    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>-->
 </body>
 </html>
 </body>
