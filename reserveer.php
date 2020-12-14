@@ -1,9 +1,12 @@
 <?php
+ require_once 'php/db_connection.php'; //connecting the db_connection to this file
+ $conn = openCon();
+
 if(isset($_GET['date'])){
     $date = $_GET['date'];
 }
 
-if(isset($_POST['submit'])){
+if (isset($_POST['submit'])) {
     $firstname = $_POST['firstname'];
     $lastname = $_POST['lastname'];
     $email = $_POST['email'];
@@ -15,14 +18,16 @@ if(isset($_POST['submit'])){
     $products = $_POST['products'];
     $date = $_POST['date'];
     $time = $_POST['time'];
-    $mysqli = new mysqli('localhost', 'root', '', 'covid-db');
-    $stmt = $mysqli->prepare("INSERT INTO contact(firstname, lastname, email, phone, adress, zipcode, city, state, products, date, time) VALUES('$firstname', '$lastname', '$email', '$phone', '$adress', '$zipcode', '$city','$state', '$products', '$date', '$time')");
-    $stmt->bind_param('sss', $firstname, $lastname, $email, $phone, $adress, $zipcode, $city, $state, $products, $date, $time);
-    $stmt-> execute();
-    $msg = "<div class='alert alert-success'>Reservering Geslaagd!</div>";
-    $stmt->close();
-    $mysqli->close();
+    $sql = "INSERT INTO contact(firstname, lastname, email, phone, adress, zipcode, city, state, products, date, time) 
+            VALUES('$firstname', '$lastname', '$email', '$phone', '$adress', '$zipcode', '$city', '$state', '$products', '$date', '$time')";
+    if (mysqli_query($conn, $sql)) {
+        echo "Records added successfully";
+    } else {
+        echo "Error, could not execute" . mysqli_error($conn);
+    }
+    closeCon($conn); //close connection
 }
+
 ?>
     <!DOCTYPE html>
     <html lang="en">
