@@ -27,3 +27,6 @@ Reserveringssysteem voor Covidshop.
 * Kleine aanpassingen aan het reserveringssysteem gemaakt, eigenlijk werkt alles behalve de "Vorgie maand, huidige maand en volgende maand" knoppen.
 * Aanpassingen gemaakt aan de stylesheet. (style.css)
 * Opmaak van de pagina gedaan. (logo links bovenin, en kleine aanpassing in de kleuren.)
+
+# Version 0.7
+* De kalender heeft nu werkende buttons, waarmee je naar de volgende en vorige maand kan om te reserveren.
