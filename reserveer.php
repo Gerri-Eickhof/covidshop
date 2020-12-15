@@ -86,7 +86,7 @@ if (isset($_POST['submit'])) {
                     </div>
                     <div class="form-group">
                         <label for="">Datum</label>
-                        <input type="text" class="form-control" name="date" value="<?php echo date('Y/m/d', strtotime($date)); ?>" readonly>
+                        <input type="text" class="form-control" name="date" value="<?php echo date('d/m/Y', strtotime($date)); ?>" readonly>
                     </div>
                     <div class="form-group">
                         <label for="">Tijd</label>
