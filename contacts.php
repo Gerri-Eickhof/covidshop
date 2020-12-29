@@ -2,7 +2,7 @@
 require_once 'php/operation.php'; //connection to the operation file to connect to db_connection and components
 
 //Get the result set from the database with a SQL query
-$result = mysqli_query($conn, "SELECT id, firstname, lastname, email, phone, adress, zipcode, city, state, products, date, time FROM contact")
+$result = mysqli_query($conn, "SELECT * FROM contact")
 or die(mysqli_error());
 
 //Loop through the result to create a custom array
@@ -45,6 +45,20 @@ $conn->close();
     <script type="text/javascript" src="plugins/datatables/responsive.bootstrap4.min.js"></script>
 </head>
 <body>
+<script>
+    function GetSelectedValue(){
+        var e = document.getElementById("state");
+        var result = e.options[e.selectedIndex].value;
+
+        document.getElementById("result").innerHTML = result;
+    }
+    function GetSelectedText(){
+        var e = document.getElementById("state");
+        var result = e.options[e.selectedIndex].text;
+
+        document.getElementById("result").innerHTML = result;
+    }
+</script>
 <main>
     <div>
         <!-- Making the form -->
@@ -59,26 +73,25 @@ $conn->close();
                         <? inputElement("col-md-6", "text","lastname", "Achternaam", "Last name"); ?>
                         <? inputElement("col-md-12", "email","email", "Email", "Email"); ?>
                         <? inputElement("col-md-12", "varchar","phone", "Telefoonnumer", "Phone"); ?>
-                        <? inputElement("col-md-7", "text","adress", "Adres", "Adres"); ?>
-                        <? inputElement("col-md-5", "number","housenumber", "Huisnummer", "House number"); ?>
+                        <? inputElement("col-md-12", "varchar","adress", "Adres", "Adres"); ?>
                         <? inputElement("col-md-7", "text","city", "Plaats", "City"); ?>
                         <? inputElement("col-md-5", "text","zipcode", "Postcode", "Zipcode"); ?>
                         <!-- Making the dropdown menu for the states in the Netherlands -->
                         <div class="col-md-7">
                             <select id="inputState" class="form-select" placeholder="Provincie"  name="state"">
                                 <option selected disabled>Kies...</option>
-                                <option>Drenthe</option>
-                                <option>Flevoland</option>
-                                <option>Friesland</option>
-                                <option>Gelderland</option>
-                                <option>Groningen</option>
-                                <option>Limburg</option>
-                                <option>Noord-Brabant</option>
-                                <option>Noord-Holland</option>
-                                <option>Overijssel</option>
-                                <option>Utrecht</option>
-                                <option>Zeeland</option>
-                                <option>Zuid-Holland</option>
+                                <option value="Drenthe">Drenthe</option>
+                                <option value="Flevoland">Flevoland</option>
+                                <option value="Friesland">Friesland</option>
+                                <option value="Gelderland">Gelderland</option>
+                                <option value="Groningen">Groningen</option>
+                                <option value="Limburg">Limburg</option>
+                                <option value="Noord-Brabant">Noord-Brabant</option>
+                                <option value="Noord-Holland">Noord-Holland</option>
+                                <option value="Overijssel">Overijssel</option>
+                                <option value="Utrecht">Utrecht</option>
+                                <option value="Zeeland">Zeeland</option>
+                                <option value="Zuid-Holland">Zuid-Holland</option>
                             </select>
                         </div>
                         <!-- setting up the cell for how many products -->
@@ -131,19 +144,19 @@ $conn->close();
                     <tbody>
                         <?php foreach ($contact as $index => $costumers) { ?>
                             <tr>
-                                <td><?= $costumers['id'] ?></td>
-                                <td><?= $costumers['firstname'] ?></td>
-                                <td><?= $costumers['lastname'] ?></td>
-                                <td><?= $costumers['email'] ?></td>
-                                <td><?= $costumers['phone'] ?></td>
-                                <td><?= $costumers['adress'] ?></td>
-                                <td><?= $costumers['zipcode'] ?></td>
-                                <td><?= $costumers['city'] ?></td>
-                                <td><?= $costumers['state'] ?></td>
-                                <td><?= $costumers['products'] ?></td>
-                                <td><?= $costumers['date'] ?></td>
-                                <td><?= $costumers['time'] ?></td>
-                                <td><i class="fas fa-edit btnedit"></i></td>
+                                <td data-id="<?= $costumers['id'] ?>"> <?= $costumers['id'] ?></td>
+                                <td data-id="<?= $costumers['id'] ?>"> <?= $costumers['firstname'] ?> </td>
+                                <td data-id="<?= $costumers['id'] ?>"> <?= $costumers['lastname'] ?> </td>
+                                <td data-id="<?= $costumers['id'] ?>"> <?= $costumers['email'] ?> </td>
+                                <td data-id="<?= $costumers['id'] ?>"> <?= $costumers['phone'] ?> </td>
+                                <td data-id="<?= $costumers['id'] ?>"> <?= $costumers['adress'] ?> </td>
+                                <td data-id="<?= $costumers['id'] ?>"> <?= $costumers['zipcode'] ?> </td>
+                                <td data-id="<?= $costumers['id'] ?>"> <?= $costumers['city'] ?> </td>
+                                <td data-id="<?= $costumers['id'] ?>"> <?= $costumers['state'] ?> </td>
+                                <td data-id="<?= $costumers['id'] ?>"> <?= $costumers['products'] ?> </td>
+                                <td data-id="<?= $costumers['id'] ?>"> <?= $costumers['date'] ?> </td>
+                                <td data-id="<?= $costumers['id'] ?>"> <?= $costumers['time'] ?> </td>
+                                <td><i class="fas fa-edit btnedit" id="edit"></i></td>
                             </tr>
                         <?php }; ?>
                     </tbody>
