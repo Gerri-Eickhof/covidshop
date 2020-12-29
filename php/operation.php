@@ -6,9 +6,16 @@ $conn = openCon(); //making connection to the database
 
 // Create button Click
 if(isset($_POST['create'])){
-        createData();
+    createData();
 }
 
+if(isset($_POST['update'])){
+    updateData();
+}
+
+if(isset($_POST['delete'])){
+    deleteRecord();
+}
 
 // Data from textbox in to db
 function createData(){
@@ -17,9 +24,7 @@ function createData(){
     $lastname = textboxValue("lastname");
     $email = textboxValue("email");
     $phone = textboxValue("phone");
-    $tempadress = textboxValue("adress");
-    $tempnumber = textboxValue("housenumber");
-    $adress = $tempadress. " " . $tempnumber;
+    $adress = textboxValue("adress");
     $zipcode = textboxValue("zipcode");
     $city = textboxValue("city");
     $state = textboxValue("state");
@@ -43,7 +48,7 @@ function createData(){
 
 //checking textbox value and mysql injections
 function textboxValue($value){
-    $textbox = mysqli_real_escape_string($GLOBALS['conn'], trim($_POST[$value] ));
+    $textbox = mysqli_real_escape_string($GLOBALS['conn'], trim($_POST[$value]));
     if(empty($textbox)){
         return false;
     }else{
@@ -66,42 +71,46 @@ function getData(){
     if(mysqli_num_rows($result) > 0){
         return $result;
      }
-    
 }
 
-//    $errors = [];
-//    if ($firstname == ""){
-//        $errors [] = 'Voornaam mag niet leeg zijn';
-//    }
-//    if ($lastname == ""){
-//        $errors [] = 'Achternaam mag niet leeg zijn';
-//    }
-//    if ($email == ""){
-//        $errors [] = 'Email mag niet leeg zijn';
-//    }
-//    if ($phone == ""){
-//        $errors [] = 'Telefoonnummer mag niet leeg zijn';
-//    }
-//    if ($adress == ""){
-//        $errors [] = 'Adres mag niet leeg zijn';
-//    }
-//    if ($zipcode == ""){
-//        $errors [] = 'Postcode mag niet leeg zijn';
-//    }
-//    if ($city == ""){
-//        $errors [] = 'Plaats mag niet leeg zijn';
-//    }
-//    if ($state == ""){
-//        $errors [] = 'Provincie mag niet leeg zijn';
-//    }
-//    if ($products == ""){
-//        $errors [] = 'Hoeveelheid Testen mag niet leeg zijn';
-//    }
-//    if ($date == ""){
-//        $errors [] = 'Datum mag niet leeg zijn';
-//    }
-//    if ($time == ""){
-//        $errors [] = 'Tijd mag niet leeg zijn';
-//    }
-//    if (!empty($firstname) && !empty($lastname) && !empty($email) && !empty($phone) && !empty($adress) && !empty($zipcode) && !empty($city) && !empty($products) && !empty($date) && !empty($time)){
-?>
+//update data
+function updateData(){
+    $id = textboxValue("id");
+    $firstname = textboxValue("firstname");
+    $lastname = textboxValue("lastname");
+    $email = textboxValue("email");
+    $phone = textboxValue("phone");
+    $tempadress = textboxValue("adress");
+    $tempnumber = textboxValue("housenumber");
+    $adress = $tempadress. " " . $tempnumber;
+    $zipcode = textboxValue("zipcode");
+    $city = textboxValue("city");
+    $state = textboxValue("state");
+    $products = textboxValue("products");
+    $date = textboxValue("date");
+    $time = textboxValue("time");
+
+    if ($firstname&&$lastname&&$email&&$phone&&$adress&&$zipcode&&$city&&$state&&$products&&$date&&$time){
+        $sql ="UPDATE contact SET id='$id', firstname='$firstname', lastname='$lastname', email='$email', phone='$phone', adress='$adress',  zipcode='$zipcode', city='$city', state='$state', products='$products', date='$date', time='$time'
+               WHERE id=$id";
+        if(mysqli_query($GLOBALS['conn'], $sql)) {
+            TextNode("success", "Afspraak is toegevoegt");
+        }else{
+            TextNode("error", "Error: Afspraak is niet toegevoegt");
+        }
+
+    }else{
+        TextNode("error", "Afspraak kon niet worden ingevoerd");
+    }
+}
+
+function deleteRecord(){
+    $id = (int)textboxValue("id");
+
+    $sql = "DELETE FROM contact WHERE id=$id";
+    if(mysqli_query($GLOBALS['conn'], $sql)){
+        TextNode("success", "Record Deleted Successfully!");
+    } else {
+        TextNode("error", "Enable to Deleted Record!");
+    }
+}
