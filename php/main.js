@@ -13,8 +13,9 @@ window.addEventListener("DOMContentLoaded", function(){
         // Get the data from the row
         let data = table.row( tr ).data();
         let textvalues = displayData(e);
+        console.log(data);
 
-
+        let id = $("input[name*='id']");
         let firstname = $("input[name*='firstname']");
         let lastname = $("input[name*='lastname']");
         let email = $("input[name*='email']");
@@ -27,8 +28,8 @@ window.addEventListener("DOMContentLoaded", function(){
         let date = $("input[name*='date']");
         let time = $("input[name*='time']");
 
-        console.log(data);
         // Output data from console to form boxes
+        id.val(data[0]);
         firstname.val(data[1]);
         lastname.val(data[2]);
         email.val(data[3]);
@@ -41,7 +42,6 @@ window.addEventListener("DOMContentLoaded", function(){
         date.val(data[10]);
         time.val(data[11]);
     });
-
     // loading Datatables in the page when turned of I
     // can access the data with my own website
     $('#appointments').DataTable({

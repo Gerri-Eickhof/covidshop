@@ -68,6 +68,9 @@ $conn->close();
             <div class="d-flex justify-content-center">
                 <form action="" method="post" class="w-50">
                     <div class="row g-2">
+                        <div class=col-md-2">
+                            <input type="text" class="form-control" name="id" placeholder="Id Nummer (Automatiche ingevuld)" aria-label="id" min="0" readonly="true">
+                        </div>
                         <!-- Using the Function inputElements out of thecomponents.php file for the form inputs -->
                         <? inputElement("col-md-6", "text", "firstname", "Voornaam", "First name"); ?>
                         <? inputElement("col-md-6", "text","lastname", "Achternaam", "Last name"); ?>
@@ -123,7 +126,7 @@ $conn->close();
                 <table id="appointments" class="table dataTable table-striped table-light" width="100%">
                     <thead>
                         <tr>
-                            <th colspan="13">Contact Informatie</th>
+                            <th colspan="14">Contact Informatie</th>
                         </tr>
                         <tr>
                             <th>#</th>

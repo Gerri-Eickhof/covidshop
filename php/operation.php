@@ -80,37 +80,32 @@ function updateData(){
     $lastname = textboxValue("lastname");
     $email = textboxValue("email");
     $phone = textboxValue("phone");
-    $tempadress = textboxValue("adress");
-    $tempnumber = textboxValue("housenumber");
-    $adress = $tempadress. " " . $tempnumber;
+    $adress = textboxValue("adress");
     $zipcode = textboxValue("zipcode");
     $city = textboxValue("city");
     $state = textboxValue("state");
     $products = textboxValue("products");
     $date = textboxValue("date");
     $time = textboxValue("time");
-
-    if ($firstname&&$lastname&&$email&&$phone&&$adress&&$zipcode&&$city&&$state&&$products&&$date&&$time){
-        $sql ="UPDATE contact SET id='$id', firstname='$firstname', lastname='$lastname', email='$email', phone='$phone', adress='$adress',  zipcode='$zipcode', city='$city', state='$state', products='$products', date='$date', time='$time'
+    if ($firstname&&$lastname&&$email&&$phone&&$adress&&$zipcode&&$city&&$state&&$products&&$date&&$time) {
+        $sql = "UPDATE contact SET firstname='$firstname', lastname='$lastname', email='$email', phone='$phone', adress='$adress',  zipcode='$zipcode', city='$city', state='$state', products='$products', date='$date', time='$time'
                WHERE id=$id";
-        if(mysqli_query($GLOBALS['conn'], $sql)) {
-            TextNode("success", "Afspraak is toegevoegt");
-        }else{
-            TextNode("error", "Error: Afspraak is niet toegevoegt");
+        if (mysqli_query($GLOBALS['conn'], $sql)) {
+            TextNode("succes", "Afpraak is aangepast!");
+        } else {
+            echo "Error bij het aanpassen van de afspraak";
         }
-
     }else{
-        TextNode("error", "Afspraak kon niet worden ingevoerd");
+        TextNode("error", "Voer alle gegevens in");
     }
 }
 
 function deleteRecord(){
     $id = (int)textboxValue("id");
-
     $sql = "DELETE FROM contact WHERE id=$id";
     if(mysqli_query($GLOBALS['conn'], $sql)){
-        TextNode("success", "Record Deleted Successfully!");
-    } else {
+        TextNode("succes", "Record Deleted Successfully!");
+    }else{
         TextNode("error", "Enable to Deleted Record!");
     }
 }
