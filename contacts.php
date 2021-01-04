@@ -66,7 +66,7 @@ $conn->close();
             <!-- title of the Form -->
             <h1 class="py-4 text-center"><i class="far fa-calendar-check"></i> Afspraken Toevoegen</h1>
             <div class="d-flex justify-content-center">
-                <form action="" method="post" class="w-50">
+                <form action="php-mailer.php" method="post" class="w-50">
                     <div class="row g-2">
                         <div class=col-md-2">
                             <input type="text" class="form-control" name="id" placeholder="Id Nummer (Automatiche ingevuld)" aria-label="id" min="0" readonly="true">
