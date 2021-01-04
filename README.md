@@ -13,7 +13,8 @@ Reserveringssysteem voor Covidshop.
 # Version 0.3
 * De index.php is verbonden met de database en er is een insert.php gemaakt om de ingevoerde gegevens uit de form in de database te zetten.
 * Eindstand werkt de form na een fout in de submit butten gevonden te hebben in het bestand index.php.
-* op contacts.php is de form voor toevoegen en bekijken opgezet en werkend.
+* op contacts.php is de form voor Create met de Database gekoppeld zodat gegevens opgeslagen wordt.
+* Contacts.php heeft een Read van de database met behulp van DataTables.
 
 # Version 0.4
 * Form is aanggepast zodat alle gegevens die voor covidshop.nl relevant zijn er in staan en opgeslagen kunnen worden in de database.
