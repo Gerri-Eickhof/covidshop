@@ -1,4 +1,5 @@
 <?php
+
  require_once 'php/db_connection.php'; //connecting the db_connection to this file
  $conn = openCon();
 
@@ -92,11 +93,13 @@ if (isset($_POST['submit'])) {
                         <label for="">Tijd</label>
                         <input type="time" class="form-control" name="time">
                     </div>
-                    <button class="btn btn-primary" type="submit" name="submit"> Verzenden</button>
+                    <button class="btn btn-primary" type="submit" name="submit" onclick="confirmInput()"> Verzenden</button>
                 </form>
             </div>
 
         </div>
+
+        <script src="myscripts.js"></script>
 
     <div class="container">
         <div class="row">
