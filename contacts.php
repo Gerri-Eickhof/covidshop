@@ -25,40 +25,6 @@ while($row = mysqli_fetch_assoc($result)){
             ];
 }
 
-if (isset($_POST['create'])){
-    //making variables of the checked input
-    $firstname  = mysqli_escape_string($conn, $_POST['firstname']);
-    $lastname   = mysqli_escape_string($conn, $_POST['lastname']);
-    $email      = mysqli_escape_string($conn, $_POST['email']);
-    $phone      = mysqli_escape_string($conn, $_POST['phone']);
-    $adress     = mysqli_escape_string($conn, $_POST['adress']);
-    $zipcode    = mysqli_escape_string($conn, $_POST['zipcode']);
-    $city       = mysqli_escape_string($conn, $_POST['city']);
-    $products   = mysqli_escape_string($conn, $_POST['products']);
-    $date       = mysqli_escape_string($conn, $_POST['date']);
-    $time       = mysqli_escape_string($conn, $_POST['time']);
-
-    //Require the form validation handling
-    require_once "php/form-validation.php";
-
-    if(isset($_REQUEST['$state']) && $_REQUEST['$state'] == '0') {
-        $errors['state'] = 'Provincie mag niet leeg zijn';
-    }
-//
-//    if (empty($errors)) {
-//        //Save the record to the database
-//        $sql = "INSERT INTO contact(firstname, lastname, email, phone, adress, zipcode, city, state, products, date, time)
-//        VALUES('$firstname', '$lastname', '$email', '$phone', '$adress', '$zipcode', '$city', '$state', '$products', '$date', '$time')";
-//        $result = mysqli_query($conn, $sql)
-//            or die ('Error: '.$sql);
-//        if($result){
-//            TextNode("succes", "Afpraak is goed toegevoegd!");
-//        }else{
-//            $errors[] = 'Something went wrong in your database query: ' . mysqli_error($conn);
-//        }
-//    }
-}
-
 //Close connection
 $conn->close();
 ?>
@@ -141,31 +107,35 @@ $conn->close();
                         <div class=" data-field col-md-7">
                             <select id="state" class="form-select" placeholder="Provincie"  name="state" aria-label="zipcode">
                                 <option selected disabled>Kies...</option>
-                                <option value="Drenthe">Drenthe </option>
-                                <option value="Flevoland">Flevoland</option>
-                                <option value="Friesland">Friesland</option>
-                                <option value="Gelderland">Gelderland</option>
-                                <option value="Groningen">Groningen</option>
-                                <option value="Limburg">Limburg</option>
-                                <option value="Noord-Brabant">Noord-Brabant</option>
-                                <option value="Noord-Holland">Noord-Holland</option>
-                                <option value="Overijssel">Overijssel</option>
-                                <option value="Utrecht">Utrecht</option>
-                                <option value="Zeeland">Zeeland</option>
-                                <option value="Zuid-Holland">Zuid-Holland</option>
+                                <option value="Drenthe <?= isset($zipcode) ? htmlentities($zipcode) : '' ?>">Drenthe </option>
+                                <option value="Flevoland <?= isset($zipcode) ? htmlentities($zipcode) : '' ?>">Flevoland</option>
+                                <option value="Friesland <?= isset($zipcode) ? htmlentities($zipcode) : '' ?>">Friesland</option>
+                                <option value="Gelderland <?= isset($zipcode) ? htmlentities($zipcode) : '' ?>">Gelderland</option>
+                                <option value="Groningen <?= isset($zipcode) ? htmlentities($zipcode) : '' ?>">Groningen</option>
+                                <option value="Limburg <?= isset($zipcode) ? htmlentities($zipcode) : '' ?>">Limburg</option>
+                                <option value="Noord-Brabant <?= isset($zipcode) ? htmlentities($zipcode) : '' ?>">Noord-Brabant</option>
+                                <option value="Noord-Holland <?= isset($zipcode) ? htmlentities($zipcode) : '' ?>">Noord-Holland</option>
+                                <option value="Overijssel <?= isset($zipcode) ? htmlentities($zipcode) : '' ?>">Overijssel</option>
+                                <option value="Utrecht <?= isset($zipcode) ? htmlentities($zipcode) : '' ?>">Utrecht</option>
+                                <option value="Zeeland <?= isset($zipcode) ? htmlentities($zipcode) : '' ?>">Zeeland</option>
+                                <option value="Zuid-Holland<?= isset($zipcode) ? htmlentities($zipcode) : '' ?>">Zuid-Holland</option>
                             </select>
+                            <span class="errors"><?= isset($errors['zipcode']) ? $errors['zipcode'] : '' ?></span>
                         </div>
                         <!-- setting up the cell for how many products -->
-                        <div class="col-md-5">
-                            <input type="number" min="0" class="form-control" placeholder="Testen" aria-label="Products" name="products">
+                        <div class="data-field col-md-5">
+                            <input class="form-control" min="0" id="products" type="number" name="products" placeholder="Testen" aria-label="Products" value="<?= isset($products) ? htmlentities($products) : '' ?>"/>
+                            <span class="errors"><?= isset($errors['products']) ? $errors['products'] : '' ?></span>
                         </div>
                         <!-- setting up the cell for the date -->
-                        <div class="col-md-7">
-                            <input type="date" class="form-control" placeholder="Datum" aria-label="Date" name="date">
+                        <div class="data-field col-md-7">
+                            <input class="form-control" min="0" id="date" type="date" name="date" placeholder="Datum" aria-label="Date" value="<?= isset($date) ? htmlentities($date) : '' ?>"/>
+                            <span class="errors"><?= isset($errors['date']) ? $errors['date'] : '' ?></span>
                         </div>
                         <!-- setting up the cell for the time -->
-                        <div class="col-md-5">
-                            <input type="time" class="form-control" placeholder="Tijd" aria-label="Time" name="time">
+                        <div class="data-field col-md-5">
+                            <input class="form-control" min="0" id="time" type="time" name="time" placeholder="Tijd" aria-label="Time" value="<?= isset($time) ? htmlentities($time) : '' ?>"/>
+                            <span class="errors"><?= isset($errors['time']) ? $errors['time'] : '' ?></span>
                         </div>
                     </div>
                     <div class="row">

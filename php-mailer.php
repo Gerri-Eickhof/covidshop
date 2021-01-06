@@ -11,63 +11,65 @@ require 'plugins/PHPMailer/src/Exception.php';
 require 'plugins/PHPMailer/src/PHPMailer.php';
 require 'plugins/PHPMailer/src/SMTP.php';
 
-// Variables from form to variables in this file
-if (isset($_POST['submit'])) {
-    //making variables of the checked input
-    $firstname = mysqli_escape_string($conn, $_POST['firstname']);
-    $lastname = mysqli_escape_string($conn, $_POST['lastname']);
-    $email = mysqli_escape_string($conn, $_POST['email']);
-    $phone = mysqli_escape_string($conn, $_POST['phone']);
-    $adress = mysqli_escape_string($conn, $_POST['adress']);
-    $zipcode = mysqli_escape_string($conn, $_POST['zipcode']);
-    $city = mysqli_escape_string($conn, $_POST['city']);
-    $state = mysqli_escape_string($conn, $_POST['state']);
-    $products = mysqli_escape_string($conn, $_POST['products']);
-    $date = mysqli_escape_string($conn, $_POST['date']);
-    $time = mysqli_escape_string($conn, $_POST['time']);
+function sentMail(){
+        //making variables of the checked input
+        $firstname  = mysqli_escape_string($GLOBALS['conn'], $_POST['firstname']);
+        $lastname   = mysqli_escape_string($GLOBALS['conn'], $_POST['lastname']);
+        $email      = mysqli_escape_string($GLOBALS['conn'], $_POST['email']);
+        $phone      = mysqli_escape_string($GLOBALS['conn'], $_POST['phone']);
+        $adress     = mysqli_escape_string($GLOBALS['conn'], $_POST['adress']);
+        $zipcode    = mysqli_escape_string($GLOBALS['conn'], $_POST['zipcode']);
+        $city       = mysqli_escape_string($GLOBALS['conn'], $_POST['city']);
+        $state      = mysqli_escape_string($GLOBALS['conn'], $_POST['state']);
+        $products   = mysqli_escape_string($GLOBALS['conn'], $_POST['products']);
+        $date       = mysqli_escape_string($GLOBALS['conn'], $_POST['date']);
+        $time       = mysqli_escape_string($GLOBALS['conn'], $_POST['time']);
 
-    //Require the form validation handling
-    require_once "php/form-validation.php";
+        echo $firstname . $lastname . $email;
+        //Require the form validation handling
+        require_once "php/form-validation.php";
 
-//    if (empty($errors)) {
-//        // Instantiation and passing `true` enables exceptions
-//        $mail = new PHPMailer(true);
-//
-//        try {
-//            // Debug server side
-//            $mail->SMTPDebug = 2;
-//            // settings from mail server
-//            $mail->isSMTP();
-//            $mail->Host = 'smtp.gmail.com';
-//            $mail->Port = 587;
-//            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-//            $mail->SMTPAuth = true;
-//            $mail->Username = 'olivier.appel@gmail.com';
-//            $mail->Password = 'ctwwqplxpwzbkjvt';
-//
-//            // mail from, where to and reply email (cc and bcc can be used when removing //
-//            $mail->setFrom('olivier.appel@gmail.com');
-//            $mail->addAddress($email, $firstname . " " . $lastname);
-//            $mail->addReplyTo('olivier.appel@gmail.com');
-//            //$mail->addCC('');
-//            //$mail->addBCC('');
-//
-//            // Subject of the mail with the date of reservation
-//            $mail->Subject = "Bevestiging Covidshop op $date";
-//            // Making the body of the mail
-//            $Body = "Geachte $firstname $lastname,\n\n";
-//            $Body .= "Hierbij bevestigen wij uw afspraak op $date om $time. ";
-//            $Body .= "Wij zullen de $products testen uitvoeren op $adress, $city in $state\n\n";
-//
-//            // Using the Body for the mail
-//            $mail->Body = $Body;
-//
-//            $mail->send();
-//            // redirecting back to previous page
-//            header("Location: http://localhost/covidshop/contacts.php", true, 301);
-//        } catch (Exception $exception) {
-//            // error message in case something went wrong
-//            echo "Error:" . $mail->ErrorInfo;
-//        }
-//    }
+        //Variables from form to variables in this file
+        //    if (empty($errors)) {
+        // Instantiation and passing `true` enables exceptions
+        $mail = new PHPMailer(true);
+
+        try {
+            // Debug server side
+            $mail->SMTPDebug = 2;
+            // settings from mail server
+            $mail->isSMTP();
+            $mail->Host = 'smtp.gmail.com';
+            $mail->Port = 587;
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+            $mail->SMTPAuth = true;
+            $mail->Username = 'olivier.appel@gmail.com';
+            $mail->Password = 'ctwwqplxpwzbkjvt';
+
+            // mail from, where to and reply email (cc and bcc can be used when removing //
+            $mail->setFrom('olivier.appel@gmail.com');
+            $mail->addAddress($email, $firstname . " " . $lastname);
+            $mail->addReplyTo('olivier.appel@gmail.com');
+            //$mail->addCC('');
+            //$mail->addBCC('');
+
+            // Subject of the mail with the date of reservation
+            $mail->Subject = "Bevestiging Covidshop op $date";
+            // Making the body of the mail
+            $Body = "Geachte $firstname $lastname,\n\n";
+            $Body .= "Hierbij bevestigen wij uw afspraak op $date om $time. ";
+            $Body .= "Wij zullen de $products testen uitvoeren op $adress, $city in $state\n\n";
+
+            // Using the Body for the mail
+            $mail->Body = $Body;
+
+            $mail->send();
+            // redirecting back to previous page
+            header("Location: http://localhost/covidshop/contacts.php", true, 301);
+        } catch (Exception $exception) {
+            // error message in case something went wrong
+            echo "Error:" . $mail->ErrorInfo;
+        }
 }
+
+
