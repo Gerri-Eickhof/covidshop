@@ -142,6 +142,8 @@ function build_calendar($month, $year){
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="Styles/style2.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="Script/script.js"></script>
+
 
 </head>
 <body>
@@ -158,23 +160,25 @@ function build_calendar($month, $year){
     <a href="#contact">Contact</a>
 
     <? if ($login){ ?>
-       <p> Je bent ingelogd <p>
-        <? header('Location:contacts.php');?>
+    <p> Je bent ingelogd</p>
+        <? header('Location: contacts.php');?>
     <? }else { ?>
-    <form action="" method="post">
-<!--        <div class="login-container">-->
-        <div>
-            <label for="username">Username</label>
-            <input type="text" id="username" name="username"/>
+        <button class="open-button" onclick="openForm()">Login</button>
+
+        <div class="form-popup" id="myForm">
+            <form method="post" class="form-container">
+                <h1>Login</h1>
+
+                <label for="username"><b>Username</b></label>
+                <input type="text" id="username" name="username" required>
+
+                <label for="password"><b>Password</b></label>
+                <input type="password" id="password" name="password" required>
+
+                <button type="submit" class="btn">Login</button>
+                <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+            </form>
         </div>
-        <div>
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password"/>
-        </div>
-        <div>
-            <input type="submit" name="submit" value="Login">
-        </div>
-    </form>
     <? } ?>
 </div>
 
