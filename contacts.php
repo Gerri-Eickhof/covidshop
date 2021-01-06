@@ -65,7 +65,7 @@ $conn->close();
         <div class="container">
             <!-- title of the Form -->
             <div id="logo">
-
+            <img src="logocovid.png">
             </div>
             <h1 class="py-4 text-center"><i class="far fa-calendar-check"></i> Afspraken Toevoegen</h1>
             <div class="d-flex justify-content-center">
