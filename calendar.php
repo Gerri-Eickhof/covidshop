@@ -142,16 +142,11 @@ function build_calendar($month, $year){
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="Styles/style2.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="Script/script.js"></script>
+    <script src="php/script.js"></script>
 
 
 </head>
 <body>
-<header>
-<!--    <div id="logo">-->
-<!--        <img src="./logocovid.png">-->
-    </div>
-</header>
 <!--De links voor de navigatiebar-->
 <div class="topnav">
     <img src="./logocovid.png">
@@ -159,10 +154,10 @@ function build_calendar($month, $year){
     <a href="#about">About</a>
     <a href="#contact">Contact</a>
 
-    <? if ($login){ ?>
-    <p> Je bent ingelogd</p>
-        <? header('location:contacts.php');?>
-    <? }else { ?>
+    <?php if ($login){
+        echo "Je bent ingelogd" ;
+        header('location:contacts.php');
+    }else  ?>
         <button class="open-button" onclick="openForm()">Login</button>
 
         <div class="form-popup" id="myForm">
@@ -182,8 +177,8 @@ function build_calendar($month, $year){
             </div>
             </form>
         </div>
-    <? } ?>
 </div>
+
 
     <div class="container">
         <div class="row">
@@ -202,6 +197,3 @@ function build_calendar($month, $year){
     </div>
 </body>
 </html>
-<?php
-
-?>
