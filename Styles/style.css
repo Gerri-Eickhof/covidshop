@@ -1,4 +1,4 @@
-
+ /*For Contacts.php*/
 .d-flex button{
     text-align: center;
     margin: 1.5em 0.6em;
@@ -25,6 +25,7 @@ margin-right:auto;
     padding: 1em;
 }
 #logo {
-    background-color: #ccc;
-    padding: 20px
+    background-color: #FFFFFF;
+    padding: 5px
 }
+/*end Contacts.php*/
