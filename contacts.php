@@ -41,9 +41,9 @@ if (isset($_POST['create'])){
     //Require the form validation handling
     require_once "php/form-validation.php";
 
-//    if(isset($_REQUEST['$state']) && $_REQUEST['$state'] == '0') {
-//        $errors['state'] = 'Provincie mag niet leeg zijn';
-//    }
+    if(isset($_REQUEST['$state']) && $_REQUEST['$state'] == '0') {
+        $errors['state'] = 'Provincie mag niet leeg zijn';
+    }
 //
 //    if (empty($errors)) {
 //        //Save the record to the database
@@ -138,10 +138,10 @@ $conn->close();
                             <span class="errors"><?= isset($errors['zipcode']) ? $errors['zipcode'] : '' ?></span>
                         </div>
                         <!-- Making the dropdown menu for the states in the Netherlands -->
-                        <div class="col-md-7">
-                            <select id="inputState" class="form-select" placeholder="Provincie"  name="state"">
+                        <div class=" data-field col-md-7">
+                            <select id="state" class="form-select" placeholder="Provincie"  name="state" aria-label="zipcode">
                                 <option selected disabled>Kies...</option>
-                                <option value="Drenthe">Drenthe</option>
+                                <option value="Drenthe">Drenthe </option>
                                 <option value="Flevoland">Flevoland</option>
                                 <option value="Friesland">Friesland</option>
                                 <option value="Gelderland">Gelderland</option>
