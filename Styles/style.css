@@ -28,4 +28,7 @@ margin-right:auto;
     background-color: #FFFFFF;
     padding: 5px
 }
+.errorMessage{
+    color: red;
+}
 /*end Contacts.php*/

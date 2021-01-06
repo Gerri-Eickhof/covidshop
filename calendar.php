@@ -158,8 +158,8 @@ function build_calendar($month, $year){
     <a href="#contact">Contact</a>
 
     <? if ($login){ ?>
-       <? echo "Je bent ingelogd" ?>
-        <? header('Location: index.php');?>
+       <p> Je bent ingelogd <p>
+        <? header('Location:contacts.php');?>
     <? }else { ?>
     <form action="" method="post">
 <!--        <div class="login-container">-->
