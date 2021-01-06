@@ -117,13 +117,26 @@ $conn->close();
                             <input class="form-control" id="lastname" type="text" name="lastname" placeholder="Achternaam" aria-label="Last Name" value="<?= isset($lastname) ? htmlentities($lastname) : '' ?>"/>
                             <span class="errors"><?= isset($errors['lastname']) ? $errors['lastname'] : '' ?></span>
                         </div>
-<!--                        --><?// inputElement("col-md-6", "text", "firstname", "Voornaam", "First name"); ?>
-<!--                        --><?// inputElement("col-md-6", "text","lastname", "Achternaam", "Last name"); ?>
-                        <? inputElement("col-md-12", "email","email", "Email", "Email"); ?>
-                        <? inputElement("col-md-12", "varchar","phone", "Telefoonnumer", "Phone"); ?>
-                        <? inputElement("col-md-12", "varchar","adress", "Adres", "Adres"); ?>
-                        <? inputElement("col-md-7", "text","city", "Plaats", "City"); ?>
-                        <? inputElement("col-md-5", "text","zipcode", "Postcode", "Zipcode"); ?>
+                        <div class="data-field col-md-12">
+                            <input class="form-control" id="email" type="text" name="email" placeholder="Email" aria-label="Email" value="<?= isset($email) ? htmlentities($email) : '' ?>"/>
+                            <span class="errors"><?= isset($errors['email']) ? $errors['email'] : '' ?></span>
+                        </div>
+                        <div class="data-field col-md-12">
+                            <input class="form-control" id="phone" type="varchar" name="phone" placeholder="Telefoonummer" aria-label="phone" value="<?= isset($phone) ? htmlentities($phone) : '' ?>"/>
+                            <span class="errors"><?= isset($errors['phone']) ? $errors['phone'] : '' ?></span>
+                        </div>
+                        <div class="data-field col-md-12">
+                            <input class="form-control" id="adress" type="varchar" name="adress" placeholder="Adres" aria-label="adress" value="<?= isset($adress) ? htmlentities($adress) : '' ?>"/>
+                            <span class="errors"><?= isset($errors['adress']) ? $errors['adress'] : '' ?></span>
+                        </div>
+                        <div class="data-field col-md-7">
+                            <input class="form-control" id="city" type="text" name="city" placeholder="Plaats" aria-label="City" value="<?= isset($city) ? htmlentities($city) : '' ?>"/>
+                            <span class="errors"><?= isset($errors['city']) ? $errors['city'] : '' ?></span>
+                        </div>
+                        <div class="data-field col-md-5">
+                            <input class="form-control" id="zipcode" type="text" name="zipcode" placeholder="Postcode" aria-label="zipcode" value="<?= isset($zipcode) ? htmlentities($zipcode) : '' ?>"/>
+                            <span class="errors"><?= isset($errors['zipcode']) ? $errors['zipcode'] : '' ?></span>
+                        </div>
                         <!-- Making the dropdown menu for the states in the Netherlands -->
                         <div class="col-md-7">
                             <select id="inputState" class="form-select" placeholder="Provincie"  name="state"">
