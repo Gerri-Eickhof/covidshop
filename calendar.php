@@ -161,22 +161,25 @@ function build_calendar($month, $year){
 
     <? if ($login){ ?>
     <p> Je bent ingelogd</p>
-        <? header('Location: contacts.php');?>
+        <? header('location:contacts.php');?>
     <? }else { ?>
         <button class="open-button" onclick="openForm()">Login</button>
 
         <div class="form-popup" id="myForm">
-            <form method="post" class="form-container">
+            <form action="" method="post" class="form-container">
                 <h1>Login</h1>
-
-                <label for="username"><b>Username</b></label>
-                <input type="text" id="username" name="username" required>
-
-                <label for="password"><b>Password</b></label>
-                <input type="password" id="password" name="password" required>
-
-                <button type="submit" class="btn">Login</button>
+            <div>
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username">
+            </div>
+            <div>
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password">
+            </div>
+            <div>
+                <button type="submit" name ="submit" class="btn">Login</button>
                 <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+            </div>
             </form>
         </div>
     <? } ?>

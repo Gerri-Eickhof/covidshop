@@ -10,7 +10,7 @@ body {
 
 .topnav {
     overflow: hidden;
-    background-color: #e9e9e9;
+    background-color: white;
 }
 
 .topnav a {
@@ -18,19 +18,21 @@ body {
     display: block;
     color: black;
     text-align: center;
-    padding: 14px 16px;
+    padding: 20px 16px;
     text-decoration: none;
-    font-size: 17px;
+    font-size: 20px;
+    font-weight: bolder;
 }
 
 .topnav a:hover {
-    background-color: #ddd;
+    background-color: dodgerblue;
     color: black;
 }
 
 .topnav a.active {
-    background-color: #2196F3;
-    color: white;
+    background-color: white;
+    color: dodgerblue;
+    text-decoration: underline;
 }
 
 .topnav .login-container {
@@ -78,7 +80,7 @@ body {
     }
 }
 .open-button {
-    background-color: #555;
+    background-color: #59939d;
     color: white;
     padding: 16px 20px;
     border: none;
