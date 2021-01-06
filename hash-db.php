@@ -10,4 +10,3 @@ $password = password_hash( "wieme",PASSWORD_DEFAULT); //$_POST['password']
 $sql = "INSERT INTO users (username, email, password) 
             VALUES('$username', '$email', '$password')";
 $result = mysqli_query($conn, $sql);
-

@@ -5,9 +5,9 @@ require_once ("components.php");
 $conn = openCon(); //making connection to the database
 
 // Create button Click
-if(isset($_POST['create'])){
-    createData();
-}
+//if(isset($_POST['create'])){
+//    createData();
+//}
 
 if(isset($_POST['update'])){
     updateData();
@@ -31,6 +31,9 @@ function createData(){
     $products = textboxValue("products");
     $date = textboxValue("date");
     $time = textboxValue("time");
+
+    require_once "php/form-validation.php";
+
 
     // variables in to the db
     if ($firstname&&$lastname&&$email&&$phone&&$adress&&$zipcode&&$city&&$state&&$products&&$date&&$time){

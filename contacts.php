@@ -25,6 +25,40 @@ while($row = mysqli_fetch_assoc($result)){
             ];
 }
 
+if (isset($_POST['create'])){
+    //making variables of the checked input
+    $firstname  = mysqli_escape_string($conn, $_POST['firstname']);
+    $lastname   = mysqli_escape_string($conn, $_POST['lastname']);
+    $email      = mysqli_escape_string($conn, $_POST['email']);
+    $phone      = mysqli_escape_string($conn, $_POST['phone']);
+    $adress     = mysqli_escape_string($conn, $_POST['adress']);
+    $zipcode    = mysqli_escape_string($conn, $_POST['zipcode']);
+    $city       = mysqli_escape_string($conn, $_POST['city']);
+    $products   = mysqli_escape_string($conn, $_POST['products']);
+    $date       = mysqli_escape_string($conn, $_POST['date']);
+    $time       = mysqli_escape_string($conn, $_POST['time']);
+
+    //Require the form validation handling
+    require_once "php/form-validation.php";
+
+//    if(isset($_REQUEST['$state']) && $_REQUEST['$state'] == '0') {
+//        $errors['state'] = 'Provincie mag niet leeg zijn';
+//    }
+//
+//    if (empty($errors)) {
+//        //Save the record to the database
+//        $sql = "INSERT INTO contact(firstname, lastname, email, phone, adress, zipcode, city, state, products, date, time)
+//        VALUES('$firstname', '$lastname', '$email', '$phone', '$adress', '$zipcode', '$city', '$state', '$products', '$date', '$time')";
+//        $result = mysqli_query($conn, $sql)
+//            or die ('Error: '.$sql);
+//        if($result){
+//            TextNode("succes", "Afpraak is goed toegevoegd!");
+//        }else{
+//            $errors[] = 'Something went wrong in your database query: ' . mysqli_error($conn);
+//        }
+//    }
+}
+
 //Close connection
 $conn->close();
 ?>
@@ -69,19 +103,40 @@ $conn->close();
             </div>
             <h1 class="py-4 text-center"><i class="far fa-calendar-check"></i> Afspraken Toevoegen</h1>
             <div class="d-flex justify-content-center">
-                <form action="php-mailer.php" method="post" class="w-50">
+                <form action="" method="post" class="w-50">
                     <div class="row g-2">
                         <div class=col-md-2">
                             <input type="text" class="form-control" name="id" placeholder="Id Nummer (Automatiche ingevuld)" aria-label="id" min="0" readonly="true">
                         </div>
                         <!-- Using the Function inputElements out of thecomponents.php file for the form inputs -->
-                        <? inputElement("col-md-6", "text", "firstname", "Voornaam", "First name"); ?>
-                        <? inputElement("col-md-6", "text","lastname", "Achternaam", "Last name"); ?>
-                        <? inputElement("col-md-12", "email","email", "Email", "Email"); ?>
-                        <? inputElement("col-md-12", "varchar","phone", "Telefoonnumer", "Phone"); ?>
-                        <? inputElement("col-md-12", "varchar","adress", "Adres", "Adres"); ?>
-                        <? inputElement("col-md-7", "text","city", "Plaats", "City"); ?>
-                        <? inputElement("col-md-5", "text","zipcode", "Postcode", "Zipcode"); ?>
+                        <div class="data-field col-md-6">
+                            <input class="form-control" id="firstname" type="text" name="firstname" placeholder="Voornaam" aria-label="First Name" value="<?= isset($firstname) ? htmlentities($firstname) : '' ?>"/>
+                            <span class="errors"><?= isset($errors['firstname']) ? $errors['firstname'] : '' ?></span>
+                        </div>
+                        <div class="data-field col-md-6">
+                            <input class="form-control" id="lastname" type="text" name="lastname" placeholder="Achternaam" aria-label="Last Name" value="<?= isset($lastname) ? htmlentities($lastname) : '' ?>"/>
+                            <span class="errors"><?= isset($errors['lastname']) ? $errors['lastname'] : '' ?></span>
+                        </div>
+                        <div class="data-field col-md-12">
+                            <input class="form-control" id="email" type="text" name="email" placeholder="Email" aria-label="Email" value="<?= isset($email) ? htmlentities($email) : '' ?>"/>
+                            <span class="errors"><?= isset($errors['email']) ? $errors['email'] : '' ?></span>
+                        </div>
+                        <div class="data-field col-md-12">
+                            <input class="form-control" id="phone" type="varchar" name="phone" placeholder="Telefoonummer" aria-label="phone" value="<?= isset($phone) ? htmlentities($phone) : '' ?>"/>
+                            <span class="errors"><?= isset($errors['phone']) ? $errors['phone'] : '' ?></span>
+                        </div>
+                        <div class="data-field col-md-12">
+                            <input class="form-control" id="adress" type="varchar" name="adress" placeholder="Adres" aria-label="adress" value="<?= isset($adress) ? htmlentities($adress) : '' ?>"/>
+                            <span class="errors"><?= isset($errors['adress']) ? $errors['adress'] : '' ?></span>
+                        </div>
+                        <div class="data-field col-md-7">
+                            <input class="form-control" id="city" type="text" name="city" placeholder="Plaats" aria-label="City" value="<?= isset($city) ? htmlentities($city) : '' ?>"/>
+                            <span class="errors"><?= isset($errors['city']) ? $errors['city'] : '' ?></span>
+                        </div>
+                        <div class="data-field col-md-5">
+                            <input class="form-control" id="zipcode" type="text" name="zipcode" placeholder="Postcode" aria-label="zipcode" value="<?= isset($zipcode) ? htmlentities($zipcode) : '' ?>"/>
+                            <span class="errors"><?= isset($errors['zipcode']) ? $errors['zipcode'] : '' ?></span>
+                        </div>
                         <!-- Making the dropdown menu for the states in the Netherlands -->
                         <div class="col-md-7">
                             <select id="inputState" class="form-select" placeholder="Provincie"  name="state"">
