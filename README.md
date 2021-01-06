@@ -36,3 +36,7 @@ Reserveringssysteem voor Covidshop.
 
 # Version 0.8
 * PHP Mailer is opgezet en werkt gemaakt bij toevoegen van afspraak op contacts.php.
+
+# Version 0.9
+* Er is een Login Pop-up toegevoegd
+
