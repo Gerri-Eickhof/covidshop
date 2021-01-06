@@ -64,6 +64,9 @@ $conn->close();
         <!-- Making the form -->
         <div class="container">
             <!-- title of the Form -->
+            <div id="logo">
+
+            </div>
             <h1 class="py-4 text-center"><i class="far fa-calendar-check"></i> Afspraken Toevoegen</h1>
             <div class="d-flex justify-content-center">
                 <form action="php-mailer.php" method="post" class="w-50">

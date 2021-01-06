@@ -24,3 +24,7 @@ margin-right:auto;
     background-color: tomato;
     padding: 1em;
 }
+#logo {
+    background-color: #ccc;
+    padding: 20px
+}
