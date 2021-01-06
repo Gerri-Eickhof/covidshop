@@ -1,4 +1,25 @@
 <?php
+require_once 'php/db_connection.php'; //connecting the db_connection to this file
+$conn = openCon();
+$login = false;
+if (isset($_POST['submit'])){
+    $username = mysqli_escape_string($conn, $_POST['username']);
+    $password = $_POST['password'];
+    //Get record from DB
+    $sql = "SELECT * FROM users WHERE username='$username'";
+    $result = mysqli_query($conn, $sql);
+    if (mysqli_num_rows($result) == 1){
+        $user = mysqli_fetch_assoc($result);
+        if (password_verify($password, $user['password'])){
+            $login = true;
+        } else {
+            echo "Username or Password is incorrect";
+        }
+    } else {
+        echo "Username or Password is incorrect";
+    }
+}
+
 function build_calendar($month, $year){
     $mysqli = new mysqli('localhost', 'root', '', 'covid-db');
     $stmt = $mysqli-> prepare("select * from contact where MONTH(date) = ? AND YEAR(date) = ?");
@@ -119,20 +140,43 @@ function build_calendar($month, $year){
 <head>
     <meta name="viewport" content=""width="device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="Styles/style2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </head>
 <body>
 <header>
-    <div id="logo">
-        <img src="./logocovid.png">
+<!--    <div id="logo">-->
+<!--        <img src="./logocovid.png">-->
     </div>
 </header>
 <!--De links voor de navigatiebar-->
-<ul>
-    <li><a href="#home">Coronatest</a></li>
-    <li><a href="#">Mobiel testen</a></li>
-    <li><a href="#contact">Contact</a></li>
-</ul>
+<div class="topnav">
+    <img src="./logocovid.png">
+    <a class="active" href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+
+    <? if ($login){ ?>
+       <? echo "Je bent ingelogd" ?>
+        <? header('Location: index.php');?>
+    <? }else { ?>
+    <form action="" method="post">
+<!--        <div class="login-container">-->
+        <div>
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username"/>
+        </div>
+        <div>
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password"/>
+        </div>
+        <div>
+            <input type="submit" name="submit" value="Login">
+        </div>
+    </form>
+    <? } ?>
+</div>
 
     <div class="container">
         <div class="row">
