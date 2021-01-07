@@ -2,6 +2,9 @@
 require_once 'php/db_connection.php'; //connecting the db_connection to this file
 $conn = openCon();
 $login = false;
+
+// If Username and password are correct , you log in. Otherwise Access is denied
+
 if (isset($_POST['submit'])){
     $username = mysqli_escape_string($conn, $_POST['username']);
     $password = $_POST['password'];
@@ -158,6 +161,8 @@ function build_calendar($month, $year){
         echo "Je bent ingelogd" ;
         header('location:contacts.php');
     }else  ?>
+                <!-- Code for login button which is a pop-up form   -->
+
         <button class="open-button" onclick="openForm()">Login</button>
 
         <div class="form-popup" id="myForm">
