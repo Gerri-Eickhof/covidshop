@@ -1,5 +1,5 @@
 <?php
-require_once 'php/db_connection.php'; //connecting the db_connection to this file
+require_once 'includes/db_connection.php'; //connecting the db_connection to this file
 $conn = openCon();
 $login = false;
 if (isset($_POST['submit'])){
@@ -109,7 +109,7 @@ function build_calendar($month, $year){
         }elseif(in_array($date, $bookings)){
             $calendar.="<td class='$today'><h4>$currentDay</h4> <button class='btn btn-danger btn-xs'>Vol Geboekt</button>";
         }else{
-            $calendar.="<td class='$today'><h4>$currentDay</h4> <a href='reserveer.php?date=".$date."' class='btn btn-success btn-xs'>Reserveer</a>";
+            $calendar.="<td class='$today'><h4>$currentDay</h4> <a href='reserveer.includes?date=".$date."' class='btn btn-success btn-xs'>Reserveer</a>";
 
         }
 
@@ -142,7 +142,7 @@ function build_calendar($month, $year){
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="Styles/style2.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="php/script.js"></script>
+    <script src="includes/script.js"></script>
 
 
 </head>
@@ -156,7 +156,7 @@ function build_calendar($month, $year){
 
     <?php if ($login){
         echo "Je bent ingelogd" ;
-        header('location:contacts.php');
+        header('location:contacts.includes');
     }else  ?>
         <button class="open-button" onclick="openForm()">Login</button>
 

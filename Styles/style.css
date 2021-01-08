@@ -1,4 +1,4 @@
- /*For Contacts.php*/
+ /*For Contacts.includes*/
 .d-flex button{
     text-align: center;
     margin: 1.5em 0.6em;
@@ -31,4 +31,4 @@ margin-right:auto;
 .errorMessage{
     color: red;
 }
-/*end Contacts.php*/
+/*end Contacts.includes*/
