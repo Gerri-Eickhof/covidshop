@@ -156,7 +156,7 @@ function build_calendar($month, $year){
 
     <?php if ($login){
         echo "Je bent ingelogd" ;
-        header('location:contacts.includes');
+        header('location:contacts.php');
     }else  ?>
         <button class="open-button" onclick="openForm()">Login</button>
 
