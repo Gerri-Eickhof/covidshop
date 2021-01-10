@@ -1,12 +1,19 @@
 h1 {
     text-align: center;
 }
-.button {
+.calendar-button {
     background-color: #59939d;
-    padding: 16px 20px;
+    color: white;
+    border: none;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 6px;
     cursor: pointer;
-
 }
+
 /*For Contacts.includes*/
 .d-flex button{
     text-align: center;

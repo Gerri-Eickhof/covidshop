@@ -4,13 +4,12 @@ session_start();
 <!doctype html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="Styles/test.css">
     <link rel="stylesheet" href="Styles/style.css">
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
+    <script src="includes/script.js"></script>
     <title>Reserveren Covidshop</title>
 </head>
 <body>
@@ -52,13 +51,18 @@ session_start();
             Welkom bij de afspraak pagina van CovidShop.com. Als u op de "Kalender" knop drukt, wordt u doorverwezen naar de kalender waar u een afspraak kunt maken met een van onze doktoren
         </div>
         <div>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam eius illo necessitatibus obcaecati repellat, voluptas.
+            Hoe maak je een reservering:
+            <ol>
+                <li>Login op de pagina met een bestaand account, of registreer een nieuw account.</li>
+                <li>Klik op de "Kalender" knop, deze zal u doorsturen naar de Kalender om te reserveren.</li>
+                <li>Druk op de knop "Deze maand", of kies een maand en die voor u uitkomt. (De data met een groene "Reserveer" knop zijn beschikbaar.)</li>
+                <li>Voer de correcte gegevens in, in het formulier</li>
+                <li>Druk op verzenden, uw afsrpaak is bevestigd wanneer u een bevestigings email ontvangt.</li>
+            </ol>
         </div>
     </div>
-    <div class="button">
-        <form method="get" action="./calendar.php">
-            <button type="submit">Kalender</button>
-        </form>
+    <div>
+        <a href="./calendar.php?month=01&year=2021" class="calendar-button">Kalender</a>
     </div>
 </body>
 </html>
