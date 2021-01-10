@@ -155,7 +155,7 @@ function build_calendar($month, $year){
 <div class="topnav">
     <img src="./logocovid.png">
     <a href="index.php">Home</a>
-    <a href="calendar.php">Calendar</a>
+    <a href="calendar.php">Kalender</a>
     <? if (isset($_SESSION['login'])) { ?>
         <a href="contacts.php">Overzicht van alle afspraken</a>
         <a href="logout.php">Logout</a>
