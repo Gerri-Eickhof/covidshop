@@ -145,3 +145,18 @@ body {
 .form-container .btn:hover, .open-button:hover {
     opacity: 1;
 }
+.grid > div {
+    background: #eee ;
+    padding: 1em;
+}
+
+.grid > div:nth-child(odd){
+    background: #ddd;
+}
+
+.grid {
+    display:grid;
+    grid-template-columns: 50% 50%;
+    grid-column-gap: 1em;
+    grid-row-gap: 1em;
+}
