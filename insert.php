@@ -1,5 +1,5 @@
 <?php
-require_once 'php/db_connection.php'; //connecting the db_connection to this file
+require_once 'includes/db_connection.php'; //connecting the db_connection to this file
 $conn = openCon();
 
 $firstname = $_POST['firstname'];

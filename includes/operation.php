@@ -20,7 +20,7 @@ if(isset($_POST['create'])) {
     $time = mysqli_escape_string($conn, $_POST['time']);
 
     //Require the form validation handling
-    require_once "php/form-validation.php";
+    require_once "includes/form-validation.php";
     if (empty($errors)) {
         //Save the record to the database
         $sql = "INSERT INTO contact(firstname, lastname, email, phone, adress, zipcode, city, state, products, date, time)

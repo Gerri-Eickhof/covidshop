@@ -406,18 +406,18 @@ class PHPMailer
      * Options:
      * * `echo` Output plain-text as-is, appropriate for CLI
      * * `html` Output escaped, line breaks converted to `<br>`, appropriate for browser output
-     * * `error_log` Output to error log as configured in php.ini
+     * * `error_log` Output to error log as configured in includes.ini
      * By default PHPMailer will use `echo` if run from a `cli` or `cli-server` SAPI, `html` otherwise.
      * Alternatively, you can provide a callable expecting two params: a message string and the debug level:
      *
-     * ```php
+     * ```includes
      * $mail->Debugoutput = function($str, $level) {echo "debug level $level; message: $str";};
      * ```
      *
      * Alternatively, you can pass in an instance of a PSR-3 compatible logger, though only `debug`
      * level output is used:
      *
-     * ```php
+     * ```includes
      * $mail->Debugoutput = new myPsr3Logger;
      * ```
      *
@@ -542,7 +542,7 @@ class PHPMailer
      * The function that handles the result of the send email action.
      * It is called out by send() for each email sent.
      *
-     * Value can be any php callable: http://www.php.net/is_callable
+     * Value can be any includes callable: http://www.php.net/is_callable
      *
      * Parameters:
      *   bool $result        result of the send action
@@ -576,7 +576,7 @@ class PHPMailer
      *
      * @var string|callable
      */
-    public static $validator = 'php';
+    public static $validator = 'includes';
 
     /**
      * An instance of the SMTP sender class.
@@ -1290,12 +1290,12 @@ class PHPMailer
      * * `auto` Pick best pattern automatically;
      * * `pcre8` Use the squiloople.com pattern, requires PCRE > 8.0;
      * * `pcre` Use old PCRE implementation;
-     * * `php` Use PHP built-in FILTER_VALIDATE_EMAIL;
+     * * `includes` Use PHP built-in FILTER_VALIDATE_EMAIL;
      * * `html5` Use the pattern given by the HTML5 spec for 'email' type form input elements.
      * * `noregex` Don't use a regex: super fast, really dumb.
      * Alternatively you may pass in a callable to inject your own validator, for example:
      *
-     * ```php
+     * ```includes
      * PHPMailer::validateAddress('user@example.com', function($address) {
      *     return (strpos($address, '@') !== false);
      * });
@@ -1362,7 +1362,7 @@ class PHPMailer
                     '[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/sD',
                     $address
                 );
-            case 'php':
+            case 'includes':
             default:
                 return filter_var($address, FILTER_VALIDATE_EMAIL) !== false;
         }
@@ -1482,7 +1482,7 @@ class PHPMailer
             trigger_error(
                 'Your version of PHP is affected by a bug that may result in corrupted messages.' .
                 ' To fix it, switch to sending using SMTP, disable the mail.add_x_header option in' .
-                ' your php.ini, switch to MacOS or Linux, or upgrade your PHP to version 7.0.17+ or 7.1.3+.',
+                ' your includes.ini, switch to MacOS or Linux, or upgrade your PHP to version 7.0.17+ or 7.1.3+.',
                 E_USER_WARNING
             );
         }
@@ -2167,7 +2167,7 @@ class PHPMailer
             $langcode = 'en';
         }
         $foundlang = true;
-        $lang_file = $lang_path . 'phpmailer.lang-' . $langcode . '.php';
+        $lang_file = $lang_path . 'phpmailer.lang-' . $langcode . '.includes';
         // There is no English translation file
         if ('en' !== $langcode) {
             // Make sure language file path is readable
@@ -3868,7 +3868,7 @@ class PHPMailer
     public static function rfcDate()
     {
         // Set the time zone to whatever the default is to avoid 500 errors
-        // Will default to UTC if it's not set properly in php.ini
+        // Will default to UTC if it's not set properly in includes.ini
         date_default_timezone_set(@date_default_timezone_get());
 
         return date('D, j M Y H:i:s O');
@@ -4137,7 +4137,7 @@ class PHPMailer
      * which was removed for license reasons in #232.
      * Example usage:
      *
-     * ```php
+     * ```includes
      * // Use default conversion
      * $plain = $mail->html2text($html);
      * // Use your own custom converter
@@ -4219,11 +4219,11 @@ class PHPMailer
             'dxr' => 'application/x-director',
             'dvi' => 'application/x-dvi',
             'gtar' => 'application/x-gtar',
-            'php3' => 'application/x-httpd-php',
-            'php4' => 'application/x-httpd-php',
-            'php' => 'application/x-httpd-php',
-            'phtml' => 'application/x-httpd-php',
-            'phps' => 'application/x-httpd-php-source',
+            'php3' => 'application/x-httpd-includes',
+            'php4' => 'application/x-httpd-includes',
+            'includes' => 'application/x-httpd-includes',
+            'phtml' => 'application/x-httpd-includes',
+            'phps' => 'application/x-httpd-includes-source',
             'swf' => 'application/x-shockwave-flash',
             'sit' => 'application/x-stuffit',
             'tar' => 'application/x-tar',

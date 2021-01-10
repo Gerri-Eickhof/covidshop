@@ -27,7 +27,7 @@ function sentMail(){
 
         echo $firstname . $lastname . $email;
         //Require the form validation handling
-        require_once "php/form-validation.php";
+        require_once "includes/form-validation.php";
 
         //Variables from form to variables in this file
         //    if (empty($errors)) {
@@ -65,7 +65,7 @@ function sentMail(){
 
             $mail->send();
             // redirecting back to previous page
-            header("Location: http://localhost/covidshop/contacts.php", true, 301);
+            header("Location: http://localhost/covidshop/contacts.includes", true, 301);
         } catch (Exception $exception) {
             // error message in case something went wrong
             echo "Error:" . $mail->ErrorInfo;

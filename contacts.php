@@ -1,5 +1,5 @@
 <?php
-require_once 'php/operation.php'; //connection to the operation file to connect to db_connection and components
+require_once 'includes/operation.php'; //connection to the operation file to connect to db_connection and components
 
 //Get the result set from the database with a SQL query
 $result = mysqli_query($conn, "SELECT * FROM contact")
@@ -195,7 +195,7 @@ $conn->close();
             </div>
         </div>
 </main>
-<script src="php/main.js"></script>
+<script src="includes/main.js"></script>
 </body>
 </html>
 </body>
