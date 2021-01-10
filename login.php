@@ -36,33 +36,3 @@ if (isset($_SESSION['login'])){
     header("Location: index.php");
     exit;
 }
-?>
-<!--<!doctype html>-->
-<!--<html lang="en">-->
-<!--<head>-->
-<!--    <meta charset="UTF-8">-->
-<!--    <title>Login</title>-->
-<!--</head>-->
-<!--<body>-->
-<!--<h1>Login</h1>-->
-<!---->
-<!--<!-- If Username or Password is wrong while it display here-->-->
-<?// if (isset($error)) { ?>
-<!--    <p>--><?//= $error; ?><!--</p>-->
-<?// } ?>
-<!---->
-<!--<form method="post" action="--><?//= $_SERVER['REQUEST_URI']; ?><!--">-->
-<!--    <div>-->
-<!--        <label for="username">Username:</label>-->
-<!--        <input id="username" type="text" name="username"/>-->
-<!--    </div>-->
-<!--    <div>-->
-<!--        <label for="password">Password</label>-->
-<!--        <input id="password" type="password" name="password"/>-->
-<!--    </div>-->
-<!--    <div>-->
-<!--        <input type="submit" name="submit" value="Login"/>-->
-<!--    </div>-->
-<!--</form>-->
-<!--</body>-->
-<!--</html>-->

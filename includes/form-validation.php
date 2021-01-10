@@ -9,6 +9,9 @@ if ($lastname == "") {
 if ($email == "") {
     $errors['email'] = 'Email mag niet leeg zijn';
 }
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    $errors['email'] = "Invalid email format";
+}
 if ($phone == "") {
     $errors['phone'] = 'Telefoonnummer mag niet leeg zijn';
 }

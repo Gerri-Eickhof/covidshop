@@ -36,3 +36,4 @@ if (isset($_POST['submit'])) {
     }
     closeCon($conn); //close connection
 }
+header("Location: index.php");

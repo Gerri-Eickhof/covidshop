@@ -1,6 +1,10 @@
 <?php
 session_start();
 require_once 'includes/operation.php'; //connection to the operation file to connect to db_connection and components
+// making this pages is only for login users
+if (!isset($_SESSION['login'])) {
+    header("Location: index.php");
+}
 
 //Get the result set from the database with a SQL query
 $result = mysqli_query($conn, "SELECT * FROM contact")
@@ -62,14 +66,11 @@ $conn->close();
 </script>
 <main>
     <div>
-        <!-- Making the form -->
-        <div class="container">
-            <!-- title of the Form -->
+            <!--Nav Bar-->
             <div class="topnav">
                 <img src="./logocovid.png">
-                <a class="active" href="#home">Home</a>
-                <a href="#about">About</a>
-                <a href="#contact">Contact</a>
+                <a href="index.php">Home</a>
+                <a href="calendar.php">Calendar</a>
                 <? if (isset($_SESSION['login'])) { ?>
                     <a href="contacts.php">Overzicht van alle afspraken</a>
                     <a href="logout.php">Logout</a>
@@ -96,8 +97,10 @@ $conn->close();
                         </form>
                     </div>
                 <? } ?>
-
             </div>
+        <!-- Making the form -->
+        <div class="container">
+            <!-- title of the Form -->
             <h1 class="py-4 text-center"><i class="far fa-calendar-check"></i> Afspraken Toevoegen</h1>
             <div class="d-flex justify-content-center">
                 <form action="" method="post" class="w-50">

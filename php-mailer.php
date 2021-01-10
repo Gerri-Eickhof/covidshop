@@ -65,11 +65,10 @@ function sentMail(){
 
             $mail->send();
             // redirecting back to previous page
-            header("Location: http://localhost/covidshop/contacts.includes", true, 301);
+            header("Location: http://localhost/covidshop/contacts.php", true, 301);
         } catch (Exception $exception) {
             // error message in case something went wrong
-            echo "Error:" . $mail->ErrorInfo;
+            // echo "Error:" . $mail->ErrorInfo;
         }
 }
-
-
+header("Location: index.php");

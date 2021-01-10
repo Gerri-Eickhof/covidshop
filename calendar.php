@@ -182,7 +182,6 @@ function build_calendar($month, $year){
             </form>
         </div>
     <? } ?>
-
 </div>
 
 

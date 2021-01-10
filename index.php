@@ -5,6 +5,7 @@ session_start();
 <html lang="en">
 <head>
     <link rel="stylesheet" href="Styles/test.css">
+    <link rel="stylesheet" href="Styles/style.css">
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -13,12 +14,38 @@ session_start();
     <title>Reserveren Covidshop</title>
 </head>
 <body>
+<!--Nav Bar-->
 <div class="topnav">
     <img src="./logocovid.png">
-    <a class="active" href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
+    <a href="index.php">Home</a>
+    <a href="calendar.php">Calendar</a>
+    <? if (isset($_SESSION['login'])) { ?>
+        <a href="contacts.php">Overzicht van alle afspraken</a>
+        <a href="logout.php">Logout</a>
+    <? }else { ?>
+        <!-- Code for login button which is a pop-up form   -->
 
+        <button class="open-button" onclick="openForm()">Login</button>
+
+        <div class="form-popup" id="myForm">
+            <form action="login.php" method="post" class="form-container">
+                <h1>Login</h1>
+                <div>
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username">
+                </div>
+                <div>
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password">
+                </div>
+                <div>
+                    <button type="submit" name ="submit" class="btn">Login</button>
+                    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+                </div>
+            </form>
+        </div>
+    <? } ?>
+</div>
     <h1> Afspraak maken</h1>
     <div class="grid">
         <div>
