@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once 'includes/operation.php'; //connection to the operation file to connect to db_connection and components
 
 //Get the result set from the database with a SQL query
@@ -64,8 +65,38 @@ $conn->close();
         <!-- Making the form -->
         <div class="container">
             <!-- title of the Form -->
-            <div id="logo">
-            <img src="logocovid.png">
+            <div class="topnav">
+                <img src="./logocovid.png">
+                <a class="active" href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+                <? if (isset($_SESSION['login'])) { ?>
+                    <a href="contacts.php">Overzicht van alle afspraken</a>
+                    <a href="logout.php">Logout</a>
+                <? }else { ?>
+                    <!-- Code for login button which is a pop-up form   -->
+
+                    <button class="open-button" onclick="openForm()">Login</button>
+
+                    <div class="form-popup" id="myForm">
+                        <form action="login.php" method="post" class="form-container">
+                            <h1>Login</h1>
+                            <div>
+                                <label for="username">Username</label>
+                                <input type="text" id="username" name="username">
+                            </div>
+                            <div>
+                                <label for="password">Password</label>
+                                <input type="password" id="password" name="password">
+                            </div>
+                            <div>
+                                <button type="submit" name ="submit" class="btn">Login</button>
+                                <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+                            </div>
+                        </form>
+                    </div>
+                <? } ?>
+
             </div>
             <h1 class="py-4 text-center"><i class="far fa-calendar-check"></i> Afspraken Toevoegen</h1>
             <div class="d-flex justify-content-center">

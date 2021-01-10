@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -26,7 +29,7 @@
         </div>
     </div>
     <div class="button">
-        <form method="get" action="/calendar.php">
+        <form method="get" action="./calendar.php">
             <button type="submit">Kalender</button>
         </form>
     </div>

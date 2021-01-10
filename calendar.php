@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once 'includes/db_connection.php'; //connecting the db_connection to this file
 $conn = openCon();
 $login = false;
@@ -143,7 +144,7 @@ function build_calendar($month, $year){
 <head>
     <meta name="viewport" content=""width="device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="Styles/style2.css">
+    <link rel="stylesheet" href="Styles/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="includes/script.js"></script>
 
@@ -153,35 +154,35 @@ function build_calendar($month, $year){
 <!--De links voor de navigatiebar-->
 <div class="topnav">
     <img src="./logocovid.png">
-    <a class="active" href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
-
-    <?php if ($login){
-        echo "Je bent ingelogd" ;
-        header('location:contacts.php');
-    }else  ?>
-                <!-- Code for login button which is a pop-up form   -->
+    <a href="index.php">Home</a>
+    <a href="calendar.php">Calendar</a>
+    <? if (isset($_SESSION['login'])) { ?>
+        <a href="contacts.php">Overzicht van alle afspraken</a>
+        <a href="logout.php">Logout</a>
+    <? }else { ?>
+        <!-- Code for login button which is a pop-up form   -->
 
         <button class="open-button" onclick="openForm()">Login</button>
 
         <div class="form-popup" id="myForm">
-            <form action="" method="post" class="form-container">
+            <form action="login.php" method="post" class="form-container">
                 <h1>Login</h1>
-            <div>
-                <label for="username">Username</label>
-                <input type="text" id="username" name="username">
-            </div>
-            <div>
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password">
-            </div>
-            <div>
-                <button type="submit" name ="submit" class="btn">Login</button>
-                <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-            </div>
+                <div>
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username">
+                </div>
+                <div>
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password">
+                </div>
+                <div>
+                    <button type="submit" name ="submit" class="btn">Login</button>
+                    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+                </div>
             </form>
         </div>
+    <? } ?>
+
 </div>
 
 

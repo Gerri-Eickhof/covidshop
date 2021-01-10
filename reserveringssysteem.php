@@ -1,4 +1,5 @@
 <?php
+session_start();
 $voornaam = filter_input(INPUT_POST, 'voornaam');
 $achternaam = filter_input(INPUT_POST, 'achternaam');
 $email = filter_input(INPUT_POST, 'email');

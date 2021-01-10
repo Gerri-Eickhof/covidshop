@@ -1,4 +1,5 @@
 <?php
+session_start();
 
  require_once 'includes/db_connection.php'; //connecting the db_connection to this file
  $conn = openCon();
