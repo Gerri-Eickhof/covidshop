@@ -4,7 +4,7 @@ session_start();
 <!doctype html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="Styles/test.css">
+    <link rel="stylesheet" href="Styles/style.css">
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -22,10 +22,18 @@ session_start();
     <h1> Afspraak maken</h1>
     <div class="grid">
         <div>
-            Welkom bij de afspraak pagina van CovidShop.com. Als u op de "Kalender" knop drukt, wordt u doorverwezen naar de kalender waar u een afspraak kunt maken met een van onze doktoren
+            Welkom bij de afspraak pagina van CovidShop.com. Om een afspraak te maken moet u eerst inloggen!
         </div>
         <div>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam eius illo necessitatibus obcaecati repellat, voluptas.
+            Hoe maak je een afspraak:
+            <ol>
+                <li> Log in op deze pagina met een bestaand account, of maak een nieuw account.</li>
+                <li> Druk op de "Kalender" knop.</li>
+                <li> Druk op "Deze maand" , en kies een beschikbare datum die voor u uitkomt.</li>
+                <li> Druk op de groene "Reserveer" knop</li>
+                <li> Voer uw gegevens in</li>
+                <li> Druk op verzenden, de reservering geslaagd, u krijgt een email ter bevestiging.</li>
+            </ol>
         </div>
     </div>
     <div class="button">
