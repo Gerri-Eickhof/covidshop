@@ -1,4 +1,13 @@
- /*For Contacts.includes*/
+h1 {
+    text-align: center;
+}
+.button {
+    background-color: #59939d;
+    padding: 16px 20px;
+    cursor: pointer;
+
+}
+/*For Contacts.includes*/
 .d-flex button{
     text-align: center;
     margin: 1.5em 0.6em;
@@ -190,7 +199,7 @@ margin-right:auto;
 
  .grid {
      display:grid;
-     grid-template-columns: 50% 50%;
+     grid-template-columns: 35% 65%;
      grid-column-gap: 1em;
      grid-row-gap: 1em;
  }

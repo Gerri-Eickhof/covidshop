@@ -94,13 +94,13 @@ if (isset($_POST['submit'])) {
                         <label for="">Tijd</label>
                         <input type="time" class="form-control" name="time">
                     </div>
-                    <button class="btn btn-primary" type="submit" name="submit" onclick="confirmInput()"> Verzenden</button>
+                    <button class="btn btn-primary" type="submit" name="submit" onclick=""> Verzenden</button>
                 </form>
             </div>
 
         </div>
 
-        <script src="myscripts.js"></script>
+        <script src="includes/script.js"></script>
 
     <div class="container">
         <div class="row">
