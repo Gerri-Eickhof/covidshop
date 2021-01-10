@@ -206,6 +206,8 @@ margin-right:auto;
 
  .grid {
      display:grid;
+     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+     grid-gap: 1rem;
      grid-template-columns: 35% 65%;
      grid-column-gap: 1em;
      grid-row-gap: 1em;
