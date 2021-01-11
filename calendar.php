@@ -55,9 +55,29 @@ function build_calendar($month, $year)
     // De naam van deze maand krijgen
     $monthName = $dateComponents['month'];
     if($monthName == "January"){
-        $monthName =  "Test 1ste ";
+        $monthName =  "Januari";
     }elseif ($monthName == "February"){
-        $monthName =  "Doei";
+        $monthName =  "Februari";
+    }elseif ($monthName == "March"){
+        $monthName =  "Maart";
+    }elseif ($monthName == "April"){
+        $monthName =  "April";
+    }elseif ($monthName == "May"){
+        $monthName =  "Mei";
+    }elseif ($monthName == "June"){
+        $monthName =  "Juni";
+    }elseif ($monthName == "July"){
+        $monthName =  "Juli";
+    }elseif ($monthName == "August"){
+        $monthName =  "Augustus";
+    }elseif ($monthName == "September"){
+        $monthName =  "September";
+    }elseif ($monthName == "October"){
+        $monthName =  "Oktober";
+    }elseif ($monthName == "November"){
+        $monthName =  "November";
+    }elseif ($monthName == "December"){
+        $monthName =  "December";
     }
 
     $dayOfWeek = $dateComponents['wday'];
