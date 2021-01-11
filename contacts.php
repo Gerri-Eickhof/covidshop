@@ -2,6 +2,8 @@
 session_start();
 require_once 'includes/operation.php'; //connection to the operation file to connect to db_connection and components
 // making this pages is only for login users
+//print_r($_SESSION);
+//exit();
 if (!isset($_SESSION['login'])) {
     header("Location: index.php");
 }

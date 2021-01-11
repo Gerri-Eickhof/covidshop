@@ -71,4 +71,6 @@ function sentMail(){
             // echo "Error:" . $mail->ErrorInfo;
         }
 }
-header("Location: index.php");
+if (!isset($_SESSION['login'])) {
+    header("Location: index.php");
+}
