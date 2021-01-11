@@ -79,7 +79,7 @@ function build_calendar($month, $year){
     foreach($daysOfWeek as $day){
         $calendar.="<th class='header'>$day</th>";
     }
-    $calendar.= "</tr><tr>";
+    $calendar .= "</tr><tr>";
 
     // Met de variabele $dayOfWeek zorg je dat er maar 7 kolommen zijn in de tabel.
     if($dayOfWeek > 0) {
@@ -189,13 +189,20 @@ function build_calendar($month, $year){
         <div class="row">
             <div class="col-md-12">
                 <?php
-                 $dateComponents = getdate();
-                 $month = $_GET['month'];
-                 $year = $_GET['year'];
+                if (!isset($_GET['month'])){
+                    $dateComponents = getdate();
+                    $month = $dateComponents['mon'];
+                    $year = $dateComponents['year'];
+
+                    echo build_calendar($month, $year);
+                }else {
+                    $dateComponents = getdate();
+                    $month = $_GET['month'];
+                    $year = $_GET['year'];
 
 
-
-                echo build_calendar($month, $year);
+                    echo build_calendar($month, $year);
+                }
                 ?>
             </div>
         </div>

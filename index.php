@@ -62,7 +62,7 @@ session_start();
         </div>
     </div>
     <div>
-        <a href="./calendar.php?month=01&year=2021" class="calendar-button">Kalender</a>
+        <a href="./calendar.php" class="calendar-button">Kalender</a>
     </div>
 </body>
 </html>
