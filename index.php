@@ -9,7 +9,6 @@ session_start();
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="includes/script.js"></script>
     <title>Reserveren Covidshop</title>
 </head>
 <body>
@@ -24,7 +23,7 @@ session_start();
     <? }else { ?>
         <!-- Code for login button which is a pop-up form   -->
 
-        <button class="open-button" onclick="openForm()">Login</button>
+        <button class="open-button" id="openForm" ">Login</button>
 
         <div class="form-popup" id="myForm">
             <form action="login.php" method="post" class="form-container">
@@ -39,7 +38,7 @@ session_start();
                 </div>
                 <div>
                     <button type="submit" name ="submit" class="btn">Login</button>
-                    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+                    <button type="button" class="btn cancel" id="closeForm" ">Close</button>
                 </div>
             </form>
         </div>
@@ -63,5 +62,7 @@ session_start();
     <div>
         <a href="./calendar.php" class="calendar-button">Kalender</a>
     </div>
+
+<script src="includes/script.js"></script>
 </body>
 </html>
