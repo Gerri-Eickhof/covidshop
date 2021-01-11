@@ -21,6 +21,9 @@ if ($adress == "") {
 if ($zipcode == "") {
     $errors['zipcode'] = 'Postcode mag niet leeg zijn';
 }
+if ($state == "") {
+    $errors['state'] = 'Provincie mag niet leeg zijn';
+}
 if ($city == "") {
     $errors['city'] = 'Plaats mag niet leeg zijn';
 }

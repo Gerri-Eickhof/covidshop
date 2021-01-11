@@ -141,8 +141,8 @@ $conn->close();
                         </div>
                         <!-- Making the dropdown menu for the states in the Netherlands -->
                         <div class=" data-field col-md-7">
-                            <select id="state" class="form-select" placeholder="Provincie"  name="state" aria-label="zipcode">
-                                <option selected disabled>Kies...</option>
+                            <select id="state" class="form-select" name="state" aria-label="zipcode">
+                                <option selected disabled>Provincie...</option>
                                 <option value="Drenthe <?= isset($zipcode) ? htmlentities($zipcode) : '' ?>">Drenthe </option>
                                 <option value="Flevoland <?= isset($zipcode) ? htmlentities($zipcode) : '' ?>">Flevoland</option>
                                 <option value="Friesland <?= isset($zipcode) ? htmlentities($zipcode) : '' ?>">Friesland</option>
@@ -156,7 +156,7 @@ $conn->close();
                                 <option value="Zeeland <?= isset($zipcode) ? htmlentities($zipcode) : '' ?>">Zeeland</option>
                                 <option value="Zuid-Holland<?= isset($zipcode) ? htmlentities($zipcode) : '' ?>">Zuid-Holland</option>
                             </select>
-                            <span class="errors"><?= isset($errors['zipcode']) ? $errors['zipcode'] : '' ?></span>
+                            <span class="errors"><?= isset($errors['state']) ? $errors['state'] : '' ?></span>
                         </div>
                         <!-- setting up the cell for how many products -->
                         <div class="data-field col-md-5">
