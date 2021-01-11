@@ -37,12 +37,22 @@ if(isset($_GET['date'])){
         <title>Reservering</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="Styles/test.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
         <script src="includes/main.js"></script>
     </head>
     <body>
+    <div class="topnav">
+        <img src="./logocovid.png">
+        <a href="index.php">Home</a>
+        <a href="calendar.php">Kalender</a>
+        <? if (isset($_SESSION['login'])) { ?>
+            <a href="contacts.php">Overzicht van alle afspraken</a>
+            <a href="logout.php">Logout</a>
+        <? }else ?>
+
 
     <div class="jumbotron text-center">
     <div class="container">

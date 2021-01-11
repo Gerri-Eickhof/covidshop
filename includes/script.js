@@ -1,15 +1,18 @@
-// function confirmInput() {
-//     fname = document.forms[0].firstname.value;
-//     alert("Hallo " + fname + "! U zal nu terug gestuurd worden naar de kalender!");
-// }
-// var Process = document.getElementsByName('submit');
-// Process.onclick = myFunction;
-
-
-function openForm() {
-    document.getElementById("myForm").style.display = "block";
+function confirmInput() {
+    fname = document.forms[0].firstname.value;
+    alert("Hallo " + fname + "! U zal nu terug gestuurd worden naar de kalender!");
 }
 
-function closeForm() {
+
+// function openForm() {
+//     document.getElementById("myForm").style.display = "block";
+// }
+
+document.getElementById("closeForm").onclick = function closeForm() {
     document.getElementById("myForm").style.display = "none";
+    console.log("Er is geklikt")
+}
+
+document.getElementById("openForm").onclick = function openForm() {
+    document.getElementById("myForm").style.display = "block";
 }

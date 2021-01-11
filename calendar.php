@@ -171,8 +171,7 @@ function build_calendar($month, $year)
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="Styles/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="includes/script.js"></script>
-</head>
+O</head>
 <body>
 <!--De links voor de navigatiebar-->
 <div class="topnav">
@@ -185,7 +184,7 @@ function build_calendar($month, $year)
     <? }else { ?>
         <!-- Code for login button which is a pop-up form   -->
 
-        <button class="open-button" onclick="openForm()">Login</button>
+        <button class="open-button" id="openForm">Login</button>
 
         <div class="form-popup" id="myForm">
             <form action="login.php" method="post" class="form-container">
@@ -200,13 +199,12 @@ function build_calendar($month, $year)
                 </div>
                 <div>
                     <button type="submit" name ="submit" class="btn">Login</button>
-                    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+                    <button type="button" class="btn cancel" id="closeForm">Close</button>
                 </div>
             </form>
         </div>
     <? } ?>
 </div>
-
 
     <div class="container">
         <div class="row">
@@ -230,5 +228,6 @@ function build_calendar($month, $year)
             </div>
         </div>
     </div>
+<script src="includes/script.js"></script>
 </body>
 </html>
