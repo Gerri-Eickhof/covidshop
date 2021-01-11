@@ -53,7 +53,6 @@ session_start();
         <div>
             Hoe maak je een reservering:
             <ol>
-                <li>Login op de pagina met een bestaand account, of registreer een nieuw account.</li>
                 <li>Klik op de "Kalender" knop, deze zal u doorsturen naar de Kalender om te reserveren.</li>
                 <li>Druk op de knop "Deze maand", of kies een maand en die voor u uitkomt. (De data met een groene "Reserveer" knop zijn beschikbaar.)</li>
                 <li>Voer de correcte gegevens in, in het formulier</li>
