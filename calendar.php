@@ -3,7 +3,6 @@ session_start();
 require_once 'includes/db_connection.php'; //connecting the db_connection to this file
 $conn = openCon();
 $login = false;
-
 // If Username and password are correct , you log in. Otherwise Access is denied
 
 if (isset($_POST['submit'])){
@@ -24,15 +23,16 @@ if (isset($_POST['submit'])){
     }
 }
 
-function build_calendar($month, $year){
+function build_calendar($month, $year)
+{
     $mysqli = new mysqli('localhost', 'root', '', 'covid-db');
-    $stmt = $mysqli-> prepare("select * from contact where MONTH(date) = ? AND YEAR(date) = ?");
+    $stmt = $mysqli->prepare("select * from contact where MONTH(date) = ? AND YEAR(date) = ?");
     $stmt->bind_param('ss', $month, $year);
     $bookings = array();
-    if($stmt->execute()){
+    if ($stmt->execute()) {
         $result = $stmt->get_result();
-        if($result->num_rows>0){
-            while ($row = $result->fetch_assoc()){
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
                 $bookings[] = $row['date'];
             }
 
@@ -41,19 +41,24 @@ function build_calendar($month, $year){
     }
 
     // Een Array met alle dagen van de week
-    $daysOfWeek = array('Zondag','Maandag', 'Dinsdag', 'Woensdag', 'Donderdag', 'Vrijdag', 'Zaterdag');
+    $daysOfWeek = array('Zondag', 'Maandag', 'Dinsdag', 'Woensdag', 'Donderdag', 'Vrijdag', 'Zaterdag');
 
     // Hiermee bepaal je de eerste dag van de maand
-    $firstDayOfMonth = mktime(0,0,0, $month, 1, $year);
+    $firstDayOfMonth = mktime(0, 0, 0, $month, 1, $year);
 
     // Hiermee bepaal je de hoeveelheid dagen in een maand.
-    $numberDays = date('t',$firstDayOfMonth);
+    $numberDays = date('t', $firstDayOfMonth);
 
     // Informatie krijgen over de eerste dag van deze maand.
     $dateComponents = getdate($firstDayOfMonth);
 
     // De naam van deze maand krijgen
     $monthName = $dateComponents['month'];
+    if($monthName == "January"){
+        $monthName =  "Test 1ste ";
+    }elseif ($monthName == "February"){
+        $monthName =  "Doei";
+    }
 
     $dayOfWeek = $dateComponents['wday'];
 
@@ -147,8 +152,6 @@ function build_calendar($month, $year){
     <link rel="stylesheet" href="Styles/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="includes/script.js"></script>
-
-
 </head>
 <body>
 <!--De links voor de navigatiebar-->
