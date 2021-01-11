@@ -52,20 +52,6 @@ $conn->close();
     <script type="text/javascript" src="plugins/datatables/responsive.bootstrap4.min.js"></script>
 </head>
 <body>
-<script>
-    function GetSelectedValue(){
-        var e = document.getElementById("state");
-        var result = e.options[e.selectedIndex].value;
-
-        document.getElementById("result").innerHTML = result;
-    }
-    function GetSelectedText(){
-        var e = document.getElementById("state");
-        var result = e.options[e.selectedIndex].text;
-
-        document.getElementById("result").innerHTML = result;
-    }
-</script>
 <main>
     <div>
             <!--Nav Bar-->

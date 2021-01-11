@@ -14,6 +14,7 @@ if(isset($_POST['create'])) {
     $phone = mysqli_escape_string($conn, $_POST['phone']);
     $adress = mysqli_escape_string($conn, $_POST['adress']);
     $zipcode = mysqli_escape_string($conn, $_POST['zipcode']);
+    $state = mysqli_escape_string($conn, $_POST['state']);
     $city = mysqli_escape_string($conn, $_POST['city']);
     $products = mysqli_escape_string($conn, $_POST['products']);
     $date = mysqli_escape_string($conn, $_POST['date']);
@@ -44,8 +45,6 @@ if(isset($_POST['delete'])){
     deleteRecord();
 }
 
-// Data from textbox in to db
-
 //checking textbox value and mysql injections
 function textboxValue($value){
     $textbox = mysqli_real_escape_string($GLOBALS['conn'], trim($_POST[$value]));
@@ -60,17 +59,6 @@ function textboxValue($value){
 function TextNode($classname, $msg){
     $element = "<h6 class='$classname'>$msg</h6>";
     echo $element;
-}
-
-// get data from mysql database
-function getData(){
-    $sql = "SELECT * FROM contact";
-
-    $result = mysqli_query($GLOBALS['conn'], $sql);
-
-    if(mysqli_num_rows($result) > 0){
-        return $result;
-     }
 }
 
 //update data
