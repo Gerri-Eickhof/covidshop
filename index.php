@@ -53,9 +53,9 @@ session_start();
             Hoe maak je een reservering:
             <ol>
                 <li>Klik op de "Kalender" knop, deze zal u doorsturen naar de Kalender om te reserveren.</li>
-                <li>Druk op de knop "Deze maand", of kies een maand en die voor u uitkomt. (De data met een groene "Reserveer" knop zijn beschikbaar.)</li>
+                <li>Kies een maand en dag die voor u uitkomt. (De data met een groene "Reserveer" knop zijn beschikbaar.)</li>
                 <li>Voer de correcte gegevens in, in het formulier</li>
-                <li>Druk op verzenden, uw afsrpaak is bevestigd wanneer u een bevestigings email ontvangt.</li>
+                <li>Druk op verzenden, uw afspraak is bevestigd wanneer u een bevestigings email ontvangt.</li>
             </ol>
         </div>
     </div>
