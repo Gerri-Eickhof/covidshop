@@ -37,7 +37,7 @@ if(isset($_GET['date'])){
         <title>Reservering</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="Styles/test.css">
+        <link rel="stylesheet" href="Styles/style2.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -92,7 +92,7 @@ if(isset($_GET['date'])){
                             <span class="errors"><?= isset($errors['zipcode']) ? $errors['zipcode'] : '' ?></span>
                         </div>
                         <!-- Making the dropdown menu for the states in the Netherlands -->
-                        <div class="form-group">
+                        <div class="form-group-state">
                             <select id="state" class="form-select" placeholder="Provincie"  name="state" aria-label="zipcode">
                                 <option selected disabled>Provincie...</option>
                                 <option value="Drenthe <?= isset($zipcode) ? htmlentities($zipcode) : '' ?>">Drenthe </option>
