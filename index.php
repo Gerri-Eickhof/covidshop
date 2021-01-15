@@ -21,6 +21,11 @@ session_start();
         <a href="contacts.php">Overzicht van alle afspraken</a>
         <a href="logout.php">Logout</a>
     <? }else { ?>
+
+       <div id="confirmText">
+           Je hebt nog niet gereserveerd!
+       </div>
+
         <!-- Code for login button which is a pop-up form   -->
 
         <button class="open-button" id="openForm" ">Login</button>

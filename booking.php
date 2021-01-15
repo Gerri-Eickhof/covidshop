@@ -126,7 +126,7 @@ if(isset($_GET['date'])){
                             <span class="errors"><?= isset($errors['time']) ? $errors['time'] : '' ?></span>
                         </div>
                     </div>
-                    <button class="btn btn-primary" type="submit" name="create" onclick=""> Verzenden</button>
+                    <button class="btn btn-primary" type="submit" name="create" id="bookSubmit" onclick=""> Verzenden</button>
                 </form>
             </div>
 
