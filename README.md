@@ -46,3 +46,6 @@ Reserveringssysteem voor Covidshop.
 * Maanden in de kalender staan nu in het nederlands
 * Een CSS Grid gemaakt om de website responsive te maken.
 
+# Version 1.1
+* Cookies toegevoegd.
+* Bevestiging van reservering bovenin de index.php pagina
