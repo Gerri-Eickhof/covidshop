@@ -6,7 +6,7 @@ window.addEventListener("load", (event)=>{
     if(cookie === 'true'){
         console.log("er is gereserveerd")
         let textDiv = document.querySelector('#confirmText');
-        textDiv.innerHTML = "Reservering opgeslagen";
+        textDiv.innerHTML = "<h3> Reservering opgeslagen! </h3>";
     } else {
         console.log("er is niet gereserveerd")
     }

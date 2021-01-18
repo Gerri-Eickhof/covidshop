@@ -23,7 +23,7 @@ session_start();
     <? }else { ?>
 
        <div id="confirmText">
-            Je hebt nog niet gereserveerd!
+          <h3>  Je hebt nog niet gereserveerd! </h3>
        </div>
 
         <!-- Code for login button which is a pop-up form   -->
