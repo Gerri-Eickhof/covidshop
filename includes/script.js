@@ -1,18 +1,13 @@
+window.addEventListener("load", (event)=> {
+    console.log("window is geladen, cookies zijn verwijderd.")
+    localStorage.clear()
+})
 
-document.getElementById("closeForm").onclick = function closeForm() {
-    document.getElementById("myForm").style.display = "none";
-}
 
-document.getElementById("openForm").onclick = function openForm() {
-    document.getElementById("myForm").style.display = "block";
-}
+let bookButton = document.getElementById("bookSubmit")
+bookButton.addEventListener("click", ()=>{
+    localStorage.setItem("gereserveerd", true)
+    console.log("you clicked the button, we saved a cookie")
+})
 
-// document.getElementById("bookSubmit").onclick = function bookConfirm() {
-//     {
-//         document.getElementById("confirmText").value = "Je hebt gereserveerd!";
-//     }
-// }
-document.getElementById("bookSubmit").onclick = function bookConfirm() {
-    const confirmText = document.querySelector("#result")
-    confirmText.innerHTML = "Je hebt gereserveerd!"
-}
+

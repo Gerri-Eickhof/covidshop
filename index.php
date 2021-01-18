@@ -23,7 +23,7 @@ session_start();
     <? }else { ?>
 
        <div id="confirmText">
-           Je hebt nog niet gereserveerd!
+            Je hebt nog niet gereserveerd!
        </div>
 
         <!-- Code for login button which is a pop-up form   -->
@@ -68,6 +68,8 @@ session_start();
         <a href="./calendar.php" class="calendar-button">Kalender</a>
     </div>
 
-<script src="includes/script.js"></script>
+<script src="includes/cookie.js"></script>
+<script src="includes/form.js"></script>
+
 </body>
 </html>

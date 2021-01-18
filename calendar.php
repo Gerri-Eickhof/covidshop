@@ -182,6 +182,7 @@ function build_calendar($month, $year)
         <a href="contacts.php">Overzicht van alle afspraken</a>
         <a href="logout.php">Logout</a>
     <? }else { ?>
+
         <!-- Code for login button which is a pop-up form   -->
 
         <button class="open-button" id="openForm">Login</button>
@@ -228,6 +229,6 @@ function build_calendar($month, $year)
             </div>
         </div>
     </div>
-<script src="includes/script.js"></script>
+<script src="includes/form.js"></script>
 </body>
 </html>
