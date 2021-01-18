@@ -40,3 +40,9 @@ Reserveringssysteem voor Covidshop.
 # Version 0.9
 * Er is een Login Pop-up toegevoegd
 
+# Version 1.0
+* Index.php pagina gemaakt en opgemaakt.
+* Pagina in de huisstijl van de covidshop website gemaakt.
+* Maanden in de kalender staan nu in het nederlands
+* Een CSS Grid gemaakt om de website responsive te maken.
+
