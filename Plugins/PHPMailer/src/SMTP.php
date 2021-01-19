@@ -124,17 +124,17 @@ class SMTP
      * Options:
      * * `echo` Output plain-text as-is, appropriate for CLI
      * * `html` Output escaped, line breaks converted to `<br>`, appropriate for browser output
-     * * `error_log` Output to error log as configured in includes.ini
+     * * `error_log` Output to error log as configured in Includes.ini
      * Alternatively, you can provide a callable expecting two params: a message string and the debug level:
      *
-     * ```includes
+     * ```Includes
      * $smtp->Debugoutput = function($str, $level) {echo "debug level $level; message: $str";};
      * ```
      *
      * Alternatively, you can pass in an instance of a PSR-3 compatible logger, though only `debug`
      * level output is used:
      *
-     * ```includes
+     * ```Includes
      * $mail->Debugoutput = new myPsr3Logger;
      * ```
      *
@@ -627,7 +627,7 @@ class SMTP
         // The following borrowed from
         // http://php.net/manual/en/function.mhash.php#27225
 
-        // RFC 2104 HMAC implementation for includes.
+        // RFC 2104 HMAC implementation for Includes.
         // Creates an md5 HMAC.
         // Eliminates the need to install mhash to compute a HMAC
         // by Lance Rushing

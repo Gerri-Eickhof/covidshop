@@ -15,6 +15,7 @@ window.addEventListener("DOMContentLoaded", function(){
         let textvalues = displayData(e);
         console.log(data);
 
+        //catching the data
         let id = $("input[name*='id']");
         let firstname = $("input[name*='firstname']");
         let lastname = $("input[name*='lastname']");
@@ -51,6 +52,7 @@ window.addEventListener("DOMContentLoaded", function(){
     });
 })
 
+// function to display data
 function displayData(e) {
     let id = 0;
     const td = $("#tbody tr td");
@@ -65,12 +67,15 @@ function displayData(e) {
     return textvalues;
 }
 
+// function to get te values from console
 function GetSelectedValue(){
     var e = document.getElementById("state");
     var result = e.options[e.selectedIndex].value;
 
     document.getElementById("result").innerHTML = result;
 }
+
+// function to get the text from console
 function GetSelectedText(){
     var e = document.getElementById("state");
     var result = e.options[e.selectedIndex].text;

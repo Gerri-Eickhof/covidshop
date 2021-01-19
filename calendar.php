@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once 'includes/db_connection.php'; //connecting the db_connection to this file
+require_once 'Includes/db_connection.php'; //connecting the db_connection to this file
 $conn = openCon();
 $login = false;
 // If Username and password are correct , you log in. Otherwise Access is denied
@@ -175,7 +175,7 @@ function build_calendar($month, $year)
 <body>
 <!--De links voor de navigatiebar-->
 <div class="topnav">
-    <img src="./logocovid.png">
+    <img src="Media/logocovid.png">
     <a href="index.php">Home</a>
     <a href="calendar.php">Kalender</a>
     <? if (isset($_SESSION['login'])) { ?>
@@ -229,6 +229,6 @@ function build_calendar($month, $year)
             </div>
         </div>
     </div>
-<script src="includes/form.js"></script>
+<script src="Includes/form.js"></script>
 </body>
 </html>

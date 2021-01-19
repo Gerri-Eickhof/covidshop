@@ -1,9 +1,9 @@
 <?php
 session_start();
-require_once 'includes/operation.php'; //connection to the operation file to connect to db_connection and components
+require_once 'Includes/operation.php'; //connection to the operation file to connect to db_connection and components
+/* @var $conn // making the variabel known  */
+
 // making this pages is only for login users
-//print_r($_SESSION);
-//exit();
 if (!isset($_SESSION['login'])) {
     header("Location: index.php");
 }
@@ -44,19 +44,19 @@ $conn->close();
     <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
     <link href = 'Styles/style.css' type = "text/css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <link rel="stylesheet" href="plugins/datatables/dataTables.bootstrap4.min.css">
-    <link rel="stylesheet" href="plugins/datatables/responsive.bootstrap4.min.css">
-    <script type="text/javascript" src="plugins/datatables/jquery.dataTables.min.js"></script>
-    <script type="text/javascript" src="plugins/datatables/dataTables.bootstrap4.min.js"></script>
-    <script type="text/javascript" src="plugins/datatables/dataTables.responsive.min.js"></script>
-    <script type="text/javascript" src="plugins/datatables/responsive.bootstrap4.min.js"></script>
+    <link rel="stylesheet" href="Plugins/datatables/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="Plugins/datatables/responsive.bootstrap4.min.css">
+    <script type="text/javascript" src="Plugins/datatables/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="Plugins/datatables/dataTables.bootstrap4.min.js"></script>
+    <script type="text/javascript" src="Plugins/datatables/dataTables.responsive.min.js"></script>
+    <script type="text/javascript" src="Plugins/datatables/responsive.bootstrap4.min.js"></script>
 </head>
 <body>
 <main>
     <div>
             <!--Nav Bar-->
             <div class="topnav">
-                <img src="./logocovid.png">
+                <img src="Media/logocovid.png">
                 <a href="index.php">Home</a>
                 <a href="calendar.php">Kalender</a>
                 <? if (isset($_SESSION['login'])) { ?>
@@ -217,7 +217,7 @@ $conn->close();
             </div>
         </div>
 </main>
-<script src="includes/main.js"></script>
+<script src="Includes/main.js"></script>
 </body>
 </html>
 </body>
