@@ -212,3 +212,16 @@ margin-right:auto;
      grid-column-gap: 1em;
      grid-row-gap: 1em;
  }
+
+/*On screens that are 992px or less*/
+@media screen and (max-width: 992px) {
+    html , body{
+        background-color: lightgray;
+    }
+}
+/*On screens that aare 600px or less*/
+@media screen and (max-width: 600px){
+    html, body{
+        background-color: lightgray;
+    }
+}
