@@ -12,6 +12,7 @@ session_start();
     <title>Reserveren Covidshop</title>
 </head>
 <body>
+
 <!--Nav Bar-->
 <div class="topnav">
     <img src="./logocovid.png">

@@ -122,7 +122,7 @@ if(isset($_GET['date'])){
                         </div>
                         <!-- setting up the cell for the time -->
                         <div class="form-group">
-                            <input class="form-control" min="0" id="time" type="time" name="time" placeholder="Tijd" aria-label="Time" value="<?= isset($time) ? htmlentities($time) : '' ?>"/>
+                            <input class="form-control" min="09:00" max="17:30" id="time" type="time" name="time" placeholder="Tijd" aria-label="Time" value="<?= isset($time) ? htmlentities($time) : '' ?>"/>
                             <span class="errors"><?= isset($errors['time']) ? $errors['time'] : '' ?></span>
                         </div>
                     </div>
