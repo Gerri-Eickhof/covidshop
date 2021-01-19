@@ -57,5 +57,4 @@ Reserveringssysteem voor Covidshop.
 
 # Version 1.1
 * Cookies toegevoegd.
-* Bevestiging van reservering bovenin de index.
-pagina
+* Bevestiging van reservering bovenin de index pagina.
