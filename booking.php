@@ -1,7 +1,7 @@
 <?php
 session_start();
-require_once 'includes/db_connection.php'; //connecting the db_connection to this file
-require_once 'includes/operation.php'; //connection to the operation file to connect to db_connection and components
+require_once 'Includes/db_connection.php'; //connecting the db_connection to this file
+require_once 'Includes/operation.php'; //connection to the operation file to connect to db_connection and components
 $conn = openCon();
 
 if(isset($_GET['date'])){
@@ -41,11 +41,11 @@ if(isset($_GET['date'])){
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-        <script src="includes/main.js"></script>
+        <script src="Includes/main.js"></script>
     </head>
     <body>
     <div class="topnav">
-        <img src="./logocovid.png">
+        <img src="Media/logocovid.png">
         <a href="index.php">Home</a>
         <a href="calendar.php">Kalender</a>
         <? if (isset($_SESSION['login'])) { ?>
@@ -142,7 +142,7 @@ if(isset($_GET['date'])){
         </div>
     </div>
 
-        <script src="includes/script.js"></script>
+        <script src="Includes/script.js"></script>
 
     </body>
     </html>

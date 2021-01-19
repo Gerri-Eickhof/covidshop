@@ -1,9 +1,11 @@
 <?php
+// connecting to database, buttons and php-mailer
 require_once ("db_connection.php");
 require_once ("components.php");
-require_once ("php-mailer.php");
+require_once("php-mailer.php");
 
-$conn = openCon(); //making connection to the database
+//making connection to the database
+$conn = openCon();
 
 // Create button Click
 if(isset($_POST['create'])) {
@@ -21,26 +23,28 @@ if(isset($_POST['create'])) {
     $time = mysqli_escape_string($conn, $_POST['time']);
 
     //Require the form validation handling
-    require_once "includes/form-validation.php";
+    require_once "Includes/form-validation.php";
     if (empty($errors)) {
         //Save the record to the database
         $sql = "INSERT INTO contact(firstname, lastname, email, phone, adress, zipcode, city, state, products, date, time)
         VALUES('$firstname', '$lastname', '$email', '$phone', '$adress', '$zipcode', '$city', '$state', '$products', '$date', '$time')";
         $result = mysqli_query($conn, $sql)
         or die ('Error: ' . $sql);
+        // if reservation is successful
         if ($result) {
             sentMail();
             TextNode("succes", "Afpraak is goed toegevoegd!");
+        // if there is an errors by making the reservation
         } else {
             $errors[] = 'Something went wrong in your database query: ' . mysqli_error($conn);
         }
     }
 }
-
+// updating when button update is pressed
 if(isset($_POST['update'])){
     updateData();
 }
-
+// deleting when button update is pressed
 if(isset($_POST['delete'])){
     deleteRecord();
 }

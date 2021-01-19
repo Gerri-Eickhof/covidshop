@@ -7,9 +7,9 @@ use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
 // Load Composer's autoloader
-require 'plugins/PHPMailer/src/Exception.php';
-require 'plugins/PHPMailer/src/PHPMailer.php';
-require 'plugins/PHPMailer/src/SMTP.php';
+require 'Plugins/PHPMailer/src/Exception.php';
+require 'Plugins/PHPMailer/src/PHPMailer.php';
+require 'Plugins/PHPMailer/src/SMTP.php';
 
 function sentMail(){
         //making variables of the checked input
@@ -27,7 +27,7 @@ function sentMail(){
 
         echo $firstname . $lastname . $email;
         //Require the form validation handling
-        require_once "includes/form-validation.php";
+        require_once "Includes/form-validation.php";
 
         //Variables from form to variables in this file
         //    if (empty($errors)) {

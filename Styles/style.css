@@ -14,7 +14,7 @@ h1 {
     cursor: pointer;
 }
 
-/*For Contacts.includes*/
+/*For Contacts.Includes*/
 .d-flex button{
     text-align: center;
     margin: 1.5em 0.6em;
@@ -47,7 +47,7 @@ margin-right:auto;
 .errorMessage{
     color: red;
 }
-/*end Contacts.includes*/
+/*end Contacts.Includes*/
  .logo{
      image-position: right;
  }

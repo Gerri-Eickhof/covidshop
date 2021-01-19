@@ -15,7 +15,7 @@ session_start();
 
 <!--Nav Bar-->
 <div class="topnav">
-    <img src="./logocovid.png">
+    <img src="Media/logocovid.png">
     <a href="index.php">Home</a>
     <a href="calendar.php">Kalender</a>
     <? if (isset($_SESSION['login'])) { ?>
@@ -69,8 +69,8 @@ session_start();
         <a href="./calendar.php" class="calendar-button">Kalender</a>
     </div>
 
-<script src="includes/cookie.js"></script>
-<script src="includes/form.js"></script>
+<script src="Includes/cookie.js"></script>
+<script src="Includes/form.js"></script>
 
 </body>
 </html>

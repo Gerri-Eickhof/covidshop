@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once 'includes/db_connection.php'; //connecting the db_connection to this file
+require_once 'Includes/db_connection.php'; //connecting the db_connection to this file
 $conn = openCon();
 
 // if login is attempted this wil begin

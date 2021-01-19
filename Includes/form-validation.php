@@ -1,4 +1,5 @@
 <?php
+//form validation
 $errors =[];
 if ($firstname == "") {
     $errors['firstname'] = 'Voornaam mag niet leeg zijn';
