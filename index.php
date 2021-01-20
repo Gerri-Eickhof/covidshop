@@ -18,10 +18,10 @@ session_start();
     <img src="Media/logocovid.png">
     <a href="index.php">Home</a>
     <a href="calendar.php">Kalender</a>
-    <? if (isset($_SESSION['login'])) { ?>
+    <?php if (isset($_SESSION['login'])) { ?>
         <a href="contacts.php">Overzicht van alle afspraken</a>
         <a href="logout.php">Logout</a>
-    <? }else { ?>
+    <?php }else { ?>
 
        <div id="confirmText">
           <h3>  Je hebt nog niet gereserveerd! </h3>
@@ -48,7 +48,7 @@ session_start();
                 </div>
             </form>
         </div>
-    <? } ?>
+    <?php } ?>
 </div>
     <h1> Afspraak maken</h1>
     <div class="grid">

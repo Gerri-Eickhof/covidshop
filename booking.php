@@ -48,10 +48,10 @@ if(isset($_GET['date'])){
         <img src="Media/logocovid.png">
         <a href="index.php">Home</a>
         <a href="calendar.php">Kalender</a>
-        <? if (isset($_SESSION['login'])) { ?>
+        <?php if (isset($_SESSION['login'])) { ?>
             <a href="contacts.php">Overzicht van alle afspraken</a>
             <a href="logout.php">Logout</a>
-        <? }else ?>
+        <?php }else ?>
 
 
     <div class="jumbotron text-center">

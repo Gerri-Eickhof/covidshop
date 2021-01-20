@@ -59,10 +59,10 @@ $conn->close();
                 <img src="Media/logocovid.png">
                 <a href="index.php">Home</a>
                 <a href="calendar.php">Kalender</a>
-                <? if (isset($_SESSION['login'])) { ?>
+                <?php if (isset($_SESSION['login'])) { ?>
                     <a href="contacts.php">Overzicht van alle afspraken</a>
                     <a href="logout.php">Logout</a>
-                <? }else { ?>
+                <?php }else { ?>
                     <!-- Code for login button which is a pop-up form   -->
 
                     <button class="open-button" onclick="openForm()">Login</button>
@@ -84,7 +84,7 @@ $conn->close();
                             </div>
                         </form>
                     </div>
-                <? } ?>
+                <?php } ?>
             </div>
         <!-- Making the form -->
         <div class="container">

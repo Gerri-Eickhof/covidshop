@@ -178,10 +178,10 @@ function build_calendar($month, $year)
     <img src="Media/logocovid.png">
     <a href="index.php">Home</a>
     <a href="calendar.php">Kalender</a>
-    <? if (isset($_SESSION['login'])) { ?>
+    <?php if (isset($_SESSION['login'])) { ?>
         <a href="contacts.php">Overzicht van alle afspraken</a>
         <a href="logout.php">Logout</a>
-    <? }else { ?>
+    <?php }else { ?>
 
         <!-- Code for login button which is a pop-up form   -->
 
@@ -204,7 +204,7 @@ function build_calendar($month, $year)
                 </div>
             </form>
         </div>
-    <? } ?>
+    <?php } ?>
 </div>
 
     <div class="container">
