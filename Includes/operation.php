@@ -10,20 +10,31 @@ $conn = openCon();
 // Create button Click
 if(isset($_POST['create'])) {
     //making variables of the checked input
-    $firstname = mysqli_escape_string($conn, $_POST['firstname']);
-    $lastname = mysqli_escape_string($conn, $_POST['lastname']);
-    $email = mysqli_escape_string($conn, $_POST['email']);
-    $phone = mysqli_escape_string($conn, $_POST['phone']);
-    $adress = mysqli_escape_string($conn, $_POST['adress']);
-    $zipcode = mysqli_escape_string($conn, $_POST['zipcode']);
-    $state = mysqli_escape_string($conn, $_POST['state']);
-    $city = mysqli_escape_string($conn, $_POST['city']);
-    $products = mysqli_escape_string($conn, $_POST['products']);
-    $date = mysqli_escape_string($conn, $_POST['date']);
-    $time = mysqli_escape_string($conn, $_POST['time']);
+    $firstname = htmlspecialchars($_POST['firstname']);
+    $firstname = mysqli_escape_string($conn, trim($firstname));
+    $lastname = htmlspecialchars($_POST['lastname']);
+    $lastname = mysqli_real_escape_string($conn, trim($lastname));
+    $email = htmlspecialchars($_POST['email']);
+    $email = mysqli_real_escape_string($conn, trim($email));
+    $phone = htmlspecialchars($_POST['phone']);
+    $phone = mysqli_real_escape_string($conn, trim($phone));
+    $adress = htmlspecialchars($_POST['adress']);
+    $adress = mysqli_real_escape_string($conn, trim($adress));
+    $zipcode = htmlspecialchars($_POST['zipcode']);
+    $zipcode = mysqli_real_escape_string($conn, trim($zipcode));
+    $state = htmlspecialchars($_POST['state']);
+    $state = mysqli_real_escape_string($conn, trim($state));
+    $city = htmlspecialchars($_POST['city']);
+    $city = mysqli_real_escape_string($conn, trim($city));
+    $products = htmlspecialchars($_POST['products']);
+    $products = mysqli_real_escape_string($conn, trim($products));
+    $date = htmlspecialchars($_POST['date']);
+    $date = mysqli_real_escape_string($conn, trim($date));
+    $time = htmlspecialchars($_POST['time']);
+    $time = mysqli_real_escape_string($conn, trim($time));
 
     //Require the form validation handling
-    require_once "Includes/form-validation.php";
+//    require_once "Includes/form-validation.php";
     if (empty($errors)) {
         //Save the record to the database
         $sql = "INSERT INTO contact(firstname, lastname, email, phone, adress, zipcode, city, state, products, date, time)

@@ -210,14 +210,13 @@ function build_calendar($month, $year)
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <?php
-                if (!isset($_GET['month'])){
+                <?php if (!isset($_GET['month'])){
                     $dateComponents = getdate();
                     $month = $dateComponents['mon'];
                     $year = $dateComponents['year'];
 
-                    echo build_calendar($month, $year);
-                }else {
+                    echo build_calendar($month, $year);?>
+                 <?php } else {
                     $dateComponents = getdate();
                     $month = $_GET['month'];
                     $year = $_GET['year'];

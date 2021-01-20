@@ -163,10 +163,14 @@ $conn->close();
                     <div class="row">
                         <!-- setting up the buttons to create, read, update and delete -->
                         <div class="d-flex justify-content-center">
-                        <? buttonElement("btn-create", "btn btn-success", "<i class='fas fa-plus'></i>", "create", "dat-toggle='tooltip' data-placement='buttom' title='Toevoegen'");?>
-                        <? buttonElement("btn-read", "btn btn-primary", "<i class='fas fa-sync'></i>", "read", "dat-toggle='tooltip' data-placement='buttom' title='Verversen'");?>
-                        <? buttonElement("btn-update", "btn btn-light border", "<i class='fas fa-pen-alt'></i>", "update", "dat-toggle='tooltip' data-placement='buttom' title='Updaten'");?>
-                        <? buttonElement("btn-delete", "btn btn-danger", "<i class='fas fa-trash-alt'></i>", "delete", "dat-toggle='tooltip' data-placement='buttom' title='Verwijderen'");?>
+                            <button name="create" 'dat-toggle="tooltip" data-placement="buttom" title="Toevoegen" '="" class="btn btn-success" id="btn-create"><i class="fas fa-plus" aria-hidden="true"></i></button>
+                            <button name="read" 'dat-toggle="tooltip" data-placement="buttom" title="Verversen" '="" class="btn btn-primary" id="btn-read"><i class="fas fa-sync" aria-hidden="true"></i></button>
+                            <button name="update" 'dat-toggle="tooltip" data-placement="buttom" title="Updaten" '="" class="btn btn-light border" id="btn-update"><i class="fas fa-pen-alt" aria-hidden="true"></i></button>
+                            <button name="delete" 'dat-toggle="tooltip" data-placement="buttom" title="Verwijderen" '="" class="btn btn-danger" id="btn-delete"><i class="fas fa-trash-alt" aria-hidden="true"></i></button>
+<!--                        buttonElement("btn-create", "btn btn-success", "<i class='fas fa-plus'></i>", "create", "dat-toggle='tooltip' data-placement='buttom' title='Toevoegen'");-->
+<!--                        buttonElement("btn-read", "btn btn-primary", "<i class='fas fa-sync'></i>", "read", "dat-toggle='tooltip' data-placement='buttom' title='Verversen'");-->
+<!--                        buttonElement("btn-update", "btn btn-light border", "<i class='fas fa-pen-alt'></i>", "update", "dat-toggle='tooltip' data-placement='buttom' title='Updaten'");-->
+<!--                        buttonElement("btn-delete", "btn btn-danger", "<i class='fas fa-trash-alt'></i>", "delete", "dat-toggle='tooltip' data-placement='buttom' title='Verwijderen'");-->
                     </div>
                 </form>
             </div>
