@@ -16,7 +16,7 @@ function openCon() {
         echo "Connected Failed" ."<br>";
 
     }
-    echo "Connected successfully" ."<br>";
+//    echo "Connected successfully" ."<br>";
     return $conn;
 }
 // closing connection to database
